@@ -1,0 +1,11 @@
+version: "3.9"
+services:
+  user-example:
+    image: solentdevops/user-example:0.1-SNAPSHOT
+    ports:
+      - "8080:8080"
+    volumes:
+      - user-example-logs:/usr/local/tomcat/logs
+
+volumes:
+  user-example-logs: {}

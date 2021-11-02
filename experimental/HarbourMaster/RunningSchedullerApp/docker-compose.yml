@@ -1,0 +1,43 @@
+version: '3.7'
+
+services:
+
+  backend:
+    image: slabiak/appointmentscheduler:1.0.4
+    ports:
+      - "8080:8080"
+    restart: always
+    depends_on:
+       appointmentscheduler_db:
+            condition: service_healthy
+    networks:
+      - appointmentscheduler_network
+    volumes:
+      - ./compose/application.properties:/app/resources/application.properties
+      # see https://github.com/GoogleContainerTools/jib/blob/master/docs/faq.md#where-is-the-application-in-the-container-filesystem
+
+  appointmentscheduler_db:
+    image: mysql:5.7
+    ports:
+      - "3306:3306"
+    restart: always
+    environment:
+      MYSQL_DATABASE: appointmentscheduler
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+      MYSQL_ROOT_PASSWORD: root_pass
+    volumes:
+      - appointmentscheduler_volume:/var/lib/mysql
+      - ./compose/src/main/resources:/docker-entrypoint-initdb.d
+    networks:
+      - appointmentscheduler_network
+    healthcheck:
+      test: ["CMD", "mysqladmin", "--user=user",  "--password=password", "ping", "-h", "localhost"]
+      timeout: 10s
+      retries: 1
+
+volumes:
+  appointmentscheduler_volume:
+
+networks:
+  appointmentscheduler_network:
