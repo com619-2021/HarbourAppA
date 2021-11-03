@@ -73,3 +73,66 @@ public class PartyDAOImplSpring implements PartyDAO {
     
     
 }
+
+//
+//package org.solent.com504.project.impl.dao.party.spring;
+//
+//import java.util.List;
+//import org.solent.com504.project.model.party.dao.PilotAvailability;
+//import org.solent.com504.project.model.party.dao.PilotDAO;
+//import org.solent.com504.project.model.party.dto.Pilot;
+//import org.springframework.beans.factory.annotation.Autowired;
+//import org.springframework.stereotype.Component;
+//
+//@Component
+//public class PilotDAOImplSpring implements PilotDAO {
+//    @Autowired
+//    private PilotRepository pilotRepository = null;
+//
+//    @Override
+//    public Pilot findById(Long id) {
+//        return pilotRepository.getOne(id);
+//    }
+//
+//    @Override
+//    public Pilot save(Pilot pilot) {
+//        return pilotRepository.save(pilot);
+//    }
+//
+//    @Override
+//    public List<Pilot> findAll() {
+//        return pilotRepository.findAll();
+//    }
+//
+//    @Override
+//    public void deleteById(long id) {
+//        pilotRepository.deleteById(id);
+//    }
+//
+//    @Override
+//    public void delete(Pilot pilot) {
+//        pilotRepository.delete(pilot);
+//    }
+//
+//    @Override
+//    public void deleteAll() {
+//        pilotRepository.deleteAll();
+//    }
+//
+//    @Override
+//    public List<Pilot> findByPartyRole(PilotAvailability pilotAvailability ) {
+//        return pilotRepository.findByPartyRole(pilotAvailability);
+//    }
+//
+//    @Override
+//    public List<Pilot> findByName(String name) {
+//        return pilotRepository.findByName(name);
+//    }
+//
+//    @Override
+//    public List<Pilot> findByPilotAvailability(PilotAvailability pilotAvailability) {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//    }
+//
+//
+//}
