@@ -232,4 +232,64 @@ public class ResourceInventoryServiceImpl implements ResourceInventoryService {
         }
     }
 
+    
+    
+    
+//    #Add a Pilot in inventory
+//@Operation(summary = "create a pilot in Inventory",
+//            tags = {"resource/inventory"},
+//            responses = {
+//                @ApiResponse(responseCode = "200", description = "successful operation returns resource list with one entry", content = @Content(
+//                        schema = @Schema(implementation = ReplyMessage.class))),
+//                @ApiResponse(responseCode = "500", description = "internal server error")
+//            })
+//@POST
+//    @Path("/Inventory")
+//    @Consumes({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
+//    @Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
+//    @Transactional
+//    public Response postCreateResourceInventory(Resource resource, @Context UriInfo uriInfo) {
+//        try {
+//            throw new UnsupportedOperationException("Not supported yet.");
+//
+//        } catch (Exception ex) {
+//            LOG.error("error calling POST /inventory postCreateResourceInventory ", ex);
+//            ReplyMessage replyMessage = new ReplyMessage();
+//            replyMessage.setCode(Response.Status.INTERNAL_SERVER_ERROR.getStatusCode());
+//            replyMessage.setDebugMessage("error calling POST /inventory postCreateResourceInventory " + ex.getMessage());
+//            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(replyMessage).build();
+//        }
+//    }
+//
+//@RequestMapping(value="create a pilot in Inventory link with pilotId{example}, method = RequestMethod.POST
+//#Find a pilot/allow user to choose a pilot
+//@Operation(summary = "Find pilot by uuid in inventory",
+//            tags = {"resource/inventory"},
+//            responses = {
+//                @ApiResponse(responseCode = "200", description = "successful operation returns resource list with one entry", content = @Content(
+//                        schema = @Schema(implementation = ReplyMessage.class))),
+//                @ApiResponse(responseCode = "404", description = "not found"),
+//                @ApiResponse(responseCode = "500", description = "internal server error")
+//            })
+//    @GET
+//    @Path("/inventory/{uuid}")
+//    @Consumes({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
+//    @Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
+//    @Transactional(readOnly = true)
+//    public Response getResourceInventoryByuuid(@PathParam("uuid") String uuid, @Context UriInfo uriInfo) {
+//        try {
+//            ReplyMessage replyMessage = resourceInventoryService.getResourceByuuid(uuid);
+//            replyMessage.setCode(Response.Status.OK.getStatusCode());
+//            return Response.status(Response.Status.OK).entity(replyMessage).build();
+//
+//        } catch (Exception ex) {
+//            LOG.error("error calling GET /inventory/{uuid} getResourceInventoryByuuid uuid=" + uuid, ex);
+//            ReplyMessage replyMessage = new ReplyMessage();
+//            replyMessage.setCode(Response.Status.INTERNAL_SERVER_ERROR.getStatusCode());
+//            replyMessage.setDebugMessage("error calling GET /inventory/{uuid} getResourceInventoryByuuid uuid=" + uuid + " " + ex.getMessage());
+//            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(replyMessage).build();
+//        }
+//    }
+//
+//@RequestMapping(value="Find a pilot by uuid in inventory link with pilotId{example}, method = RequestMethod.GET
 }
