@@ -18,4 +18,12 @@
 
 - ship
   - added barebones to model package, getters/setters included no actual methods as of yet
+
+
+### main issues
+
+- need a working SQL db connection
+- need to sort database object and DAO
+- Tidal API to be added to controller package *somewhere*
+- GPS also needs implementing
  
