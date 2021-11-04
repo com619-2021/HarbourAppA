@@ -36,3 +36,29 @@ public interface PartyService {
     public List<PartyRole> getAvailablePartyRoles();
     
 }
+//
+//pilot service
+
+//import java.util.List;
+//import org.solent.com504.project.model.party.dao.PilotAvailability;
+//import org.solent.com504.project.model.party.dto.Pilot;
+//
+//public interface PilotService {
+//        public Pilot findById(Long id);
+//
+//    public Pilot save(Pilot pilot);
+//
+//    public List<Pilot> findAll();
+//
+//    public void deleteById(long id);
+//
+//    public void delete(Pilot pilot);
+//
+//    public void deleteAll();
+//
+//    public List<Pilot> findByPilotAvailability(PilotAvailability pilotAvailability);
+//
+//    public List<Pilot> findByName(String name);
+//
+//    public List<PilotAvailability> getAvailablePilots();
+//}

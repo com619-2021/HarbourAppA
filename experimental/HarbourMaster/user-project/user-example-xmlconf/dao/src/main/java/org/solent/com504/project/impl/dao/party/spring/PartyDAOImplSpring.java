@@ -74,7 +74,11 @@ public class PartyDAOImplSpring implements PartyDAO {
     
 }
 
+
+
+///PilotDAOimplSpring:
 //
+
 //package org.solent.com504.project.impl.dao.party.spring;
 //
 //import java.util.List;
@@ -120,8 +124,8 @@ public class PartyDAOImplSpring implements PartyDAO {
 //    }
 //
 //    @Override
-//    public List<Pilot> findByPartyRole(PilotAvailability pilotAvailability ) {
-//        return pilotRepository.findByPartyRole(pilotAvailability);
+//    public List<Pilot> findByPilotAvailability(PilotAvailability pilotAvailability ) {
+//        return pilotRepository.findByPilotAvailability(pilotAvailability);
 //    }
 //
 //    @Override
