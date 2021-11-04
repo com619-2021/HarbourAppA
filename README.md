@@ -26,4 +26,8 @@
 - need to sort database object and DAO
 - Tidal API to be added to controller package *somewhere*
 - GPS also needs implementing
+
+
+ -objectfactory/ servicefacade-  make pilots/ships
+ 
  
