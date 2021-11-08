@@ -33,6 +33,10 @@
  
  
  
- meeting with Port owners
- meeting with Shipping line
+ 
+ ## completed
+ --
+ #meeting with Port owners
+ 
+ #meeting with Shipping line
  
