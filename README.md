@@ -31,3 +31,8 @@
  -objectfactory/ servicefacade-  make pilots/ships
  
  
+ 
+ 
+ meeting with Port owners
+ meeting with Shipping line
+ 
