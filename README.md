@@ -38,5 +38,10 @@
  
  #meeting with Port owners
  
+ #ship arrived required-
+ 
+ 
  #meeting with Shipping line
+ 
+ #LOA,no of passengers required on ship object
  
