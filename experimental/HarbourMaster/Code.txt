@@ -1,0 +1,656 @@
+PilotCatalogDAO:
+package org.solent.com504.project.model.resource.dao;
+
+public interface PilotCatalogDAO {
+    
+}
+PilotInventoryDAO:
+package org.solent.com504.project.model.resource.dao;
+
+public interface PilotInventoryDAO {
+    
+}
+PilotCatalogService:
+package org.solent.com504.project.model.resource.service;
+
+import org.solent.com504.project.model.dto.ReplyMessage;
+
+public interface PilotCatalogService {
+    public ReplyMessage getPilotCatalogByuuid(String uuid);
+
+    public ReplyMessage deletePilotCatalogByUuid(String uuid);
+
+    public ReplyMessage postCreatePilotCatalog(PilotCatalog pilotCatalog);
+
+    public ReplyMessage putUpdatePilotCatalog(PilotCatalog pilotCatalog);
+
+    public ReplyMessage postRemoveCharacteristic(String pilotUuid, String name);
+    
+    public ReplyMessage postAddModifyCharacteristic(String pilotUuid, String characteristicName, String license, Boolean availability);
+}
+PilotInventoryService:
+package org.solent.com504.project.model.resource.service;
+
+import org.solent.com504.project.model.dto.ReplyMessage;
+
+public interface PilotInventoryService {
+    public ReplyMessage getPilotByuuid(String uuid);
+
+    public ReplyMessage deletePilotByUuid(String uuid);
+
+    public ReplyMessage postCreatePilot(Pilot pilot, String ownerPilotUUID);
+    
+    public ReplyMessage postCreatePilotFromCatalogResource(String catalogUUID, String PilotUUID);
+
+    public ReplyMessage putUpdatePilot(Pilot pilot);
+    
+    public ReplyMessage postRemoveCharacteristic(String pilotUuid, String name);
+    
+    public ReplyMessage postAddModifyCharacteristic(String pilotUuid, String name, String license, Boolean availability);
+}
+PilotCatalog:
+package org.solent.com504.project.model.resource.dto;
+
+import javax.persistence.Entity;
+import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement
+@XmlAccessorType(XmlAccessType.FIELD)
+
+@Entity
+@Table(name = "pilotcatalog")
+public class PilotCatalog extends AbstractPilot {
+    
+}
+PilotCatalogHref:
+package org.solent.com504.project.model.resource.dto;
+
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement
+@XmlAccessorType(XmlAccessType.FIELD)
+public class PilotCatalogHref {
+    private String href;
+
+    private String uuid;
+
+    private Long id;
+
+    private String name;
+
+    public String getHref() {
+        return href;
+    }
+
+    public void setHref(String href) {
+        this.href = href;
+    }
+
+    public String getUuid() {
+        return uuid;
+    }
+
+    public void setUuid(String uuid) {
+        this.uuid = uuid;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        return "PilotHref{" + "href=" + href + ", uuid=" + uuid + ", id=" + id + ", name=" + name + '}';
+    }
+}
+PilotAccess:
+package org.solent.com504.project.model.resource.dto;
+
+public enum PilotAccess {
+    Available, Unavailable
+}
+PilotHref:
+package org.solent.com504.project.model.resource.dto;
+
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement
+@XmlAccessorType(XmlAccessType.FIELD)
+public class PilotHref {
+    private String href;
+
+    private String uuid;
+
+    private Long id;
+
+    private String name;
+
+    public String getHref() {
+        return href;
+    }
+
+    public void setHref(String href) {
+        this.href = href;
+    }
+
+    public String getUuid() {
+        return uuid;
+    }
+
+    public void setUuid(String uuid) {
+        this.uuid = uuid;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        return "PilotHref{" + "href=" + href + ", uuid=" + uuid + ", id=" + id + ", name=" + name + '}';
+    }
+}
+PilotCharacteristics:
+package org.solent.com504.project.model.resource.dto;
+
+import java.util.Objects;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement
+@XmlAccessorType(XmlAccessType.FIELD)
+public class PilotCharacteristics {
+     private String name;
+
+    private String license;
+    
+    private String availability;
+    
+    public PilotCharacteristics(){
+        
+    }
+
+    public PilotCharacteristics(String name, String license, Boolean availability) {
+        this.name = name;
+        this.license = license;
+        this.license = license;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getLicense() {
+        return license;
+    }
+
+    public void setLicense(String license) {
+        this.license = license;
+    }
+
+    public String getAvailability() {
+        return availability;
+    }
+
+    public void setDescription(String description) {
+        this.availability = availability;
+    }
+
+    @Override
+    public String toString() {
+        return "Characteristic{" + "name=" + name + ", license=" + license + ", availability=" + availability + '}';
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 79 * hash + Objects.hashCode(this.name);
+        hash = 79 * hash + Objects.hashCode(this.license);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final PilotCharacteristics other = (PilotCharacteristics) obj;
+        if (!Objects.equals(this.name, other.name)) {
+            return false;
+        }
+        if (!Objects.equals(this.license, other.license)) {
+            return false;
+        }
+        return true;
+    }
+}
+AbstractPilot:
+package org.solent.com504.project.model.resource.dto;
+
+import javax.persistence.Entity;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement
+@XmlAccessorType(XmlAccessType.FIELD)
+
+@Inheritance(strategy=InheritanceType.TABLE_PER_CLASS)
+public abstract class AbstractPilot {
+    private Long id;
+
+    private String href;
+
+    private String uuid;
+
+    private String name;
+
+    private List<PilotCharacteristics> characteristics;
+
+    private Pilot pilotOwner;
+
+    private PilotAccess pilotController;
+
+    private String license;
+
+    private Boolean availability;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getHref() {
+        return href;
+    }
+
+    public void setHref(String href) {
+        this.href = href;
+    }
+
+    public String getUuid() {
+        return uuid;
+    }
+
+    public void setUuid(String uuid) {
+        this.uuid = uuid;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    // this avoids having to create a table for individual characteristis
+    // but at the expense of not being able to search on characterists 
+    @Column(name = "characteristics", length = 1000)
+    @Convert(converter = PilotCharacteristicsListToJsonConverter.class)
+    public List<PilotCharacteristic> getCharacteristics() {
+        return characteristics;
+    }
+
+    public void setCharacteristics(List<PilotCharacteristic> characteristics) {
+        this.characteristics = characteristics;
+    }
+
+    @OneToOne
+    public Pilot getPilotOwner() {
+        return pilotOwner;
+    }
+
+    public void setPilotOwner(Pilot pilotOwner) {
+        this.pilotOwner = pilotOwner;
+    }
+
+    public PilotAccess getPilotController() {
+        return pilotController;
+    }
+
+    public void setPilotController(PilotAccess pilotController) {
+        this.pilotController = pilotController;
+    }
+
+    public String getPilotLicense() {
+        return license;
+    }
+
+    public void setPilotLicense(String license) {
+        this.license = license;
+    }
+
+    public Boolean getAvailability() {
+        return availability;
+    }
+
+    public void setAvailability(Boolean availability) {
+        this.availability = availability;
+    }
+
+    @Override
+    public String toString() {
+        return "Resource{" + "id=" + id + ", href=" + href + ", uuid=" + uuid + ", name=" + name + ", characteristics=" + characteristics + ", pilotOwner=" + pilotOwner + ", pilotController=" + pilotController + ", license=" + license + ", availability=" + availability + '}';
+    }
+}
+AbstractPilotMapper:
+package org.solent.com504.project.model.resource.dto;
+
+import org.mapstruct.Mapper;
+import org.mapstruct.NullValueCheckStrategy;
+import org.mapstruct.NullValuePropertyMappingStrategy;
+
+@Mapper(nullValueCheckStrategy = NullValueCheckStrategy.ALWAYS, nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
+public interface AbstractPilotMapper {
+  AbstractPilotMapper INSTANCE = Mappers.getMapper(AbstractPilotMapper.class);
+
+    Pilot abstractResourceToResource(AbstractPilot abstractPilot);
+
+   PilotHref abstractPilotToPilotHref(AbstractPilot abstractPilot);
+
+    PilotCatalog abstractPilotToPilotCatalog(AbstractPilot abstractPilot);
+
+    PilotCatalogHref abstractPilotToPilotCatalogHref(AbstractPilot abstractPilot);
+    
+    List<PilotCatalogHref> abstractPilotListToPilotCatalogHrefList(List<AbstractPilot> abstractPilotList);
+    
+    List<PilotHref> abstractPilotListToPilotHrefList(List<AbstractPilot> abstractPilotList);
+
+    Pilot updatePilot(AbstractPilot pilot, @MappingTarget Pilot pilotEntity);
+
+    PilotCatalog updateCatalog(AbstractPilot Pilot, @MappingTarget PilotCatalog catalogEntity);
+
+    // prevents attempted database disconnected lazy loading updates of users 
+    @Mapping(ignore = true, target = "users")
+    Pilot toPilot(Pilot pilot);
+  
+}
+PilotCharacteristicsToJasonConverter:
+package org.solent.com504.project.model.utilities;
+
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import java.util.List;
+import javax.persistence.AttributeConverter;
+import javax.persistence.Converter;
+import org.solent.com504.project.model.resource.dto.Characteristic;
+import org.solent.com504.project.model.resource.dto.PilotCharacteristics;
+
+@Converter
+public class PilotCharacteristicsToJasonConverter implements AttributeConverter<List<PilotCharacteristics>, String> {
+
+   private static ObjectMapper mapper = new ObjectMapper();
+
+    @Override
+    public String convertToDatabaseColumn(List<PilotCharacteristics> attribute) {
+        if (attribute == null) {
+            return null;
+        }
+        try {
+            return mapper.writeValueAsString(attribute);
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    @SuppressWarnings("unchecked")
+    @Override
+    public List<PilotCharacteristics> convertToEntityAttribute(String dbData) {
+        if (dbData == null || dbData.isEmpty()) {
+            return null;
+        }
+        try {
+            
+            return mapper.readValue(dbData, new TypeReference<List<PilotCharacteristics>>() {});
+            
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+    
+}
+PilotCatalogServiceImpl:
+package org.solent.com504.project.impl.resource.service;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Date;
+import java.util.Iterator;
+import java.util.List;
+import java.util.UUID;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.solent.com504.project.model.dto.ReplyMessage;
+import org.solent.com504.project.model.resource.dto.AbstractPilotMapper;
+import org.solent.com504.project.model.resource.dto.PilotAccess;
+import org.solent.com504.project.model.resource.dto.PilotCatalog;
+import org.solent.com504.project.model.resource.dto.PilotCharacteristics;
+import org.solent.com504.project.model.resource.service.PilotCatalogService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+@Service
+public class PilotCatalogServiceImpl implements PilotCatalogService{
+    final static Logger LOG = LogManager.getLogger(PilotCatalogServiceImpl.class);
+
+    @Autowired
+    private PilotRepository pilotRepository = null;
+
+    @Autowired
+    private PilotRepository pilotRepository = null;
+
+    @Autowired
+    private PilotCatalogRepository pilotCatalogRepository = null;
+
+
+    @Override
+    @Transactional
+    public ReplyMessage getPilotCatalogByuuid(String uuid) {
+
+        ReplyMessage replyMessage = new ReplyMessage();
+
+        List<PilotCatalog> pilotCatalogList = pilotCatalogRepository.findByUuid(uuid);
+        if (pilotCatalogList.isEmpty()) {
+            throw new IllegalArgumentException("cannot find catalog resource uuid not found=" + uuid);
+        }
+        PilotCatalog pilotCatalogEntity = pilotCatalogList.get(0);
+
+        
+        PilotCatalog detachedPilot = AbstractPilotMapper.INSTANCE.abstractResourceToResourceCatalog(pilotCatalogEntity);
+        replyMessage.setPilotCatalogList(Arrays.asList(detachedPilot));
+        replyMessage.setOffset(0);
+        replyMessage.setLimit(1);
+        replyMessage.setTotalCount(1L);
+        return replyMessage;
+    }
+
+    @Override
+    @Transactional
+    public ReplyMessage deletePilotCatalogByUuid(String uuid) {
+
+        List<PilotCatalog> pilotCatalogList = pilotCatalogRepository.findByUuid(uuid);
+        if (pilotCatalogList.isEmpty()) {
+            throw new IllegalArgumentException("cannot delete catalog resource uuid not found=" + uuid);
+        }
+        pilotCatalogRepository.delete(pilotCatalogList.get(0));
+        return new ReplyMessage();
+    }
+
+    @Override
+    @Transactional
+    public ReplyMessage postCreatePilotCatalog(PilotCatalog pilot) {
+        pilot.setId(null); 
+
+    
+        if (pilot.getUuid() == null || pilot.getUuid().isEmpty()) {
+            pilot.setUuid(UUID.randomUUID().toString());
+            
+            Long t = new Date().getTime();
+            pilot.setPilotName("initial name "+t );
+            pilot.setPilotController(PilotAccess.INTERNAL);
+        }
+        pilot = pilotCatalogRepository.saveAndFlush(pilot);
+
+        ReplyMessage replyMessage = new ReplyMessage();
+        replyMessage.setPilotCatalogList(Arrays.asList(pilot));
+        return replyMessage;
+    }
+
+    @Override
+    @Transactional
+
+    public ReplyMessage putUpdatePilotCatalog(PilotCatalog pilotCatalog) {
+
+        pilotCatalog.setId(null); // may be differnt db id
+        if (pilotCatalog.getUuid() == null) {
+            throw new IllegalArgumentException("cannot update pilot uuid=null");
+        }
+        List<PilotCatalog> pilotCatalogList = pilotCatalogRepository.findByUuid(pilotCatalog.getUuid());
+        if (pilotCatalogList.isEmpty()) {
+            throw new IllegalArgumentException("cannot update pilot not found uuid=" + pilotCatalog.getUuid());
+        }
+        PilotCatalog pilotCatalogEntity = pilotCatalogList.get(0);
+
+        
+        pilotCatalogEntity = AbstractPilotMapper.INSTANCE.updateCatalog(pilotCatalog, pilotCatalogEntity);
+       pilotCatalogEntity = pilotCatalogRepository.saveAndFlush(pilotCatalogEntity);
+
+      
+        PilotCatalog detachedPilot = AbstractPilotMapper.INSTANCE.abstractPilotToPilotCatalog(pilotCatalogEntity);
+        ReplyMessage replyMessage = new ReplyMessage();
+        replyMessage.setOffset(1);
+        replyMessage.setLimit(1);
+        replyMessage.setTotalCount(1L);
+        replyMessage.setPilotCatalogList(Arrays.asList(detachedPilot));
+        return replyMessage;
+    }
+
+    @Override
+    @Transactional
+    public ReplyMessage postRemoveCharacteristic(String pilotUuid, String name) {
+        List<PilotCatalog> pilotCatalogList = pilotCatalogRepository.findByUuid(pilotUuid);
+        if (pilotCatalogList != null && !pilotCatalogList.isEmpty()) {
+            PilotCatalog pilotEntity = pilotCatalogList.get(0);
+            List<PilotCharacteristic> characteristics = (pilotEntity.getCharacteristics() != null) ? pilotEntity.getCharacteristics() : new ArrayList<PilotCharacteristic>();
+            Iterator<PilotCharacteristic> iterator = characteristics.iterator();
+            while (iterator.hasNext()) {
+                PilotCharacteristic characteristic = iterator.next();
+                if (name.equals(characteristic.getName())) {
+                    iterator.remove();
+                }
+            }
+            pilotEntity.setCharacteristics(characteristics);
+             pilotCatalogRepository.saveAndFlush( pilotEntity);
+
+           
+            PilotCatalog detachedPilot = AbstractPilotMapper.INSTANCE.abstractPilotToPilotCatalog( pilotEntity);
+            ReplyMessage replyMessage = new ReplyMessage();
+            replyMessage.setPilotCatalogList(Arrays.asList(detachedPilot));
+            return replyMessage;
+        } else {
+            throw new IllegalArgumentException("error deleting characteristic " + name + " pilot not found pilotUuid=" +  pilotUuid);
+        }
+    }
+
+    @Override
+    @Transactional
+    public ReplyMessage postAddModifyCharacteristic(String  pilotUuid, String name, String license, Boolean availability) {
+        List<PilotCatalog>  pilotCatalogList =  pilotCatalogRepository.findByUuid( pilotUuid);
+        if ( pilotCatalogList != null && ! pilotCatalogList.isEmpty()) {
+            PilotCatalog  pilotCatalogEntity =  pilotCatalogList.get(0);
+            List<PilotCharacteristics> characteristics = ( pilotCatalogEntity.getCharacteristics() != null) ?  pilotCatalogEntity.getCharacteristics() : new ArrayList<PilotCharacteristics>();
+            
+            if ( pilotCatalogEntity.getCharacteristics() != null) {
+                for (Object o :  pilotCatalogEntity.getCharacteristics()) {
+                    LOG.debug("******************x 0=" + o);
+                    LOG.debug("***************type 0=" + o.getClass().getCanonicalName());
+                }
+            } else {
+                LOG.debug("****************** 0=null !!");
+            }
+
+            Iterator<PilotCharacteristics> iterator = characteristics.iterator();
+            boolean found = false;
+            PilotCharacteristics characteristic;
+            while (iterator.hasNext() && !found) {
+                characteristic = iterator.next();
+                if (name.equals(characteristic.getName())) {
+                    
+                    found = true;
+                    characteristic.setAvailability(availability);
+                    characteristic.setLicense(license);
+                }
+            }
+            
+            if (!found) {
+                characteristic = new PilotCharacteristics(name, license, availability);
+                characteristic.setAvailability(availability);
+                characteristic.setLicense(license);
+                characteristics.add(characteristic);
+            }
+            pilotCatalogEntity.setCharacteristics(characteristics);
+            pilotCatalogRepository.saveAndFlush(pilotCatalogEntity);
+
+            
+            PilotCatalog detachedPilot = AbstractPilotMapper.INSTANCE.abstractPilotToPilotCatalog(pilotCatalogEntity);
+            ReplyMessage replyMessage = new ReplyMessage();
+            replyMessage.setPilotCatalogList(Arrays.asList(detachedPilot));
+            return replyMessage;
+        } else {
+            throw new IllegalArgumentException("error updating characteristic " + name + " pilot not found pilotUuid=" + pilotUuid);
+        }
+    }
+}
