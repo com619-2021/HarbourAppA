@@ -6,4 +6,6 @@ package repository;
  */
 public class ShipLocationRepository {
     
+    
+    //test
 }

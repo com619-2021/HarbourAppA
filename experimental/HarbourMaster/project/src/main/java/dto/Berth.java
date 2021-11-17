@@ -6,48 +6,71 @@ import javax.persistence.Table;
 import javax.persistence.Id;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
-import javax.persistence.Enumerated;
-import javax.persistence.EnumType;
 
+
+
+
+//ivan
 
 @Entity
 @Table(name="berths")
 public class Berth {
-    @Id
+	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
-    
-    @Enumerated(EnumType.STRING)
-    private Float lat;
-    private Float lon;
 
-    public Berth(Float lat, Float lon){
-        this.lat = lat;
-        this.lon = lon;
+	private int id;
 
-    }
+	private int berthId;
 
+	private double lat;
+	private double lon;
 
-	
+	// Empty default constructor needed for H2 in-memory testing DB.
+	public Berth() {
+
+	}
+
+	public Berth(int berthId, double lat, double lon) {
+		this.berthId = berthId;
+		this.lat = lat;
+		this.lon = lon;
+	}
+
 	public int getId() {
 		return id;
 	}
 
 	public void setId(int id) {
 		this.id = id;
-    }
-    public Float getLat() {
+	}
+
+	public int getBerthId() {
+		return berthId;
+	}
+
+	public void setBerthId(int berthId) {
+		this.berthId = berthId;
+	}
+
+
+	public double getLat() {
 		return lat;
 	}
 
-	public void setLat(Float lat) {
+	public void setLat(double lat) {
 		this.lat = lat;
-    }
-    public Float getLon() {
+	}
+
+	public double getLon() {
 		return lon;
 	}
 
-	public void setLon(Float lon) {
+	public void setLon(double lon) {
 		this.lon = lon;
+	}
+
+	@Override
+	public String toString() {
+		return getClass().getSimpleName() + "[id=" + id + ", berthId=" + berthId + ", lat=" + lat + ", lon=" + lon + "]";
 	}
 }
