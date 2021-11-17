@@ -5,10 +5,20 @@
  */
 package dao;
 
+import dto.Order;
+
 /**
  *
  * @author jake_
  */
 public class OrderDAO {
+
+    public void save(Order order) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public Order findById(int orderId) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }

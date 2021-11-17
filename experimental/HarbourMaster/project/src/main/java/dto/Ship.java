@@ -15,6 +15,11 @@ public class Ship {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
 	private double draft;
+        private float length;
+
+        
+        // bool to declare whether boat can dock at high/low tide
+        private boolean tide;
 
 	// Empty default constructor 
 	public Ship() {
@@ -39,5 +44,24 @@ public class Ship {
 //	public void setDraft(double draft) {
 //		this.draft = draft;
 //	}
+        
+        
+       public boolean isTide() {
+        return tide;
+    }
+
+    public void setTide(boolean tide) {
+        this.tide = tide;
+    }
+ 
+        public float getLength() {
+        return length;
+    }
+
+    public void setLength(float length) {
+        this.length = length;
+    }
+
+        
 	
 }
