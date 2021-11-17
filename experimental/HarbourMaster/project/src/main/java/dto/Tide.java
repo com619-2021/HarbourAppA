@@ -1,6 +1,9 @@
 
 package dto;
 
+import model.TideStage;
+
+
 import java.util.ArrayList;
 import java.time.LocalTime;
 import java.time.DayOfWeek;
@@ -29,6 +32,7 @@ public class Tide {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private double height;
+        private boolean tidestage;
 
 	@Enumerated(EnumType.ORDINAL)
 	private DayOfWeek day;
@@ -47,10 +51,11 @@ public class Tide {
 		this.end = end;
 	}
 
-	public Tide(int id, DayOfWeek day, double height, LocalTime start, LocalTime end) {
+	public Tide(int id, DayOfWeek day, double height, boolean tidestage, LocalTime start, LocalTime end) {
 		this.id = id;
 		this.day = day;
 		this.height = height;
+                this.tidestage = tidestage;
 		this.start = start;
 		this.end = end;
 	}
@@ -70,6 +75,19 @@ public class Tide {
 	public void setHeight(double height) {
 		this.height = height;
 	}
+        
+        
+        
+        public Boolean getTideStage() {
+		return tidestage;
+	}
+        
+        
+        public void setTideStage (Boolean tidestage){
+            this.tidestage = tidestage;
+            
+        }
+               
 
 	public LocalTime getStart() {
 		return start;
