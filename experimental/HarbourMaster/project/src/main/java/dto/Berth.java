@@ -9,9 +9,6 @@ import javax.persistence.GenerationType;
 
 
 
-
-//ivan
-
 @Entity
 @Table(name="berths")
 public class Berth {
