@@ -1,12 +1,14 @@
 package dao;
 
 import java.util.List;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
+import java.util.UUID;
 
 import dto.GPS;
 import repository.GPSRepository;
+
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 @Repository
 public class GPSDAO {
@@ -41,7 +43,8 @@ public class GPSDAO {
 		GPSRepository.deleteAll();
 	}
 
-	public GPS findByShipId(int shipId) {
-		return GPSRepository.findByShipId(shipId);
+	public GPS findByShipUUID(UUID uuid) {
+		return GPSRepository.findOneByShipUuid(uuid);
 	}
+        
 }
