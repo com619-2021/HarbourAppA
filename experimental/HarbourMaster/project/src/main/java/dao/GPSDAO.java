@@ -46,5 +46,9 @@ public class GPSDAO {
 	public GPS findByShipUUID(UUID uuid) {
 		return GPSRepository.findOneByShipUuid(uuid);
 	}
+
+    public GPS findByShipId(int id) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
         
 }
