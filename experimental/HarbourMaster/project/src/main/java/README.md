@@ -1,4 +1,13 @@
 
+COPIED POM, README
+WEB/CLIENT AND SWAGGER GEN CLIENT FROM CLASS EXAMPLE-
+CURRENTLY WILL NOT CLEAN/ BUILD AT ALL.
+
+
+
+
+
+
 # base project with Party and User objects - Spring Java @Config
 
 updated for java 11 dependencies
