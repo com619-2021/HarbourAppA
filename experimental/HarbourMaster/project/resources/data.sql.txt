@@ -1,7 +1,0 @@
-
-
-
-//INSERT INTO tides (day, high, low) VALUES (1, 0.8, '00:00:00.000000', '01:28:59.999999');
-
-//INSERT INTO  ship_location (lat, lon) VALUES (50.5555, -0.9999);
-//make sure decimal places are correct

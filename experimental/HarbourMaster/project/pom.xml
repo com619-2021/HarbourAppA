@@ -3,7 +3,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>solent.ac.uk.devops.traffic</groupId>
-    <artifactId>order-example</artifactId>
+    <artifactId>harbour-master</artifactId>
     <version>0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
 
@@ -55,15 +55,15 @@
             </activation>
             <modules>
                 <module>model</module>
-                <module>client</module>
+          <!--      <module>client</module> -->
                 <module>dao</module>
                 <module>service</module>
                 <module>web</module>
-                <module>swagger-generated-client</module>
+          <!--      <module>swagger-generated-client</module> -->
             </modules>
         </profile>
         <!-- this will only work if you are running on a linux machine with installed docker or docker-desktop on windows -->
-        <profile>
+   <!--     <profile>
             <id>packageAsDocker</id>
             <modules>
                 <module>model</module>
@@ -75,9 +75,16 @@
                 <module>docker</module>
             </modules>
         </profile>
+-->
     </profiles>
 
-    <modules></modules>
+    <modules>
+        <module>model</module>
+        <module>dao</module>
+        <module>service</module>
+        <module>web</module>
+
+    </modules>
   
 
     <build>
