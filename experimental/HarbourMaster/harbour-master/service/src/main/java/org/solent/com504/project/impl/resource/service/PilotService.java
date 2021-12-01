@@ -1,14 +1,25 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package org.solent.com504.project.impl.resource.service;
 
-/**
- *
- * @author jake_
- */
+import org.solent.com504.project.model.dto.Pilot;
+import org.solent.com504.project.model.resource.dao.PilotDAO;
+
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+
+@Service
 public class PilotService {
-    
+	private transient final org.apache.commons.logging.Log log = org.apache.commons.logging.LogFactory.getLog(this.getClass());
+
+	@Autowired
+	private PilotDAO pilotDAO;
+
+	public Boolean createNewPilot(Pilot pilot) {
+		pilotDAO.save(pilot);
+		return true;
+	}
+
+	
 }
