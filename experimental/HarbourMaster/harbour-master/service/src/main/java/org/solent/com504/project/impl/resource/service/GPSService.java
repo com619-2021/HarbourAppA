@@ -20,9 +20,9 @@ import org.solent.com504.project.model.dto.OrderStatus;
 import org.solent.com504.project.model.dto.ShipLocation;
 
 
-import org.solent.com504.project.model.resource.dao.GPSDAO;
-import org.solent.com504.project.model.resource.dao.ShipLocationDAO;
-import org.solent.com504.project.model.resource.dao.OrderDAO;
+import org.solent.com504.project.model.order.dao.GPSDAO;
+import org.solent.com504.project.model.order.dao.ShipLocationDAO;
+import org.solent.com504.project.model.order.dao.OrderDAO;
 
 @Service
 public class GPSService {
