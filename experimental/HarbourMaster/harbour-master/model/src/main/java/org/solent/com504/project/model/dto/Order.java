@@ -1,5 +1,6 @@
 
 package org.solent.com504.project.model.dto;
+import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -12,6 +13,8 @@ import org.solent.com504.project.model.dto.Ship;
 import org.solent.com504.project.model.dto.OrderStatus;
 
 import java.sql.Timestamp;
+import java.util.List;
+import java.util.UUID;
 
 import javax.persistence.Lob;
 import javax.persistence.Basic;
@@ -23,6 +26,8 @@ import javax.persistence.Table;
 import javax.persistence.Column;
 import javax.persistence.OneToOne;
 import javax.persistence.CascadeType;
+import javax.persistence.ElementCollection;
+import javax.persistence.Transient;
 
 
 
@@ -31,60 +36,90 @@ import javax.persistence.CascadeType;
 public class Order {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int id;
+        @ApiModelProperty(hidden = true)
+	private int pk;
 
+        @GeneratedValue(generator = "UUID")
+	private UUID uuid;
+        
+        private OrderStatus status;
+
+	private String reason;
+
+	        
+        @Column(name="orderDate", columnDefinition="TIMESTAMP")
+	private LocalDateTime orderDate;
+
+	@Column(name="dayOfArrival", columnDefinition="TIMESTAMP")
+	private LocalDate dayOfArrival;
+
+	@Column(name="allocatedStart", columnDefinition="TIMESTAMP")
+	private LocalDateTime allocatedStart;
+
+	@Column(name="allocatedEnd", columnDefinition="TIMESTAMP")
+	private LocalDateTime allocatedEnd;
+        
+        
+        
+        @ElementCollection
+	private List<UUID> changeRequests;
+        
 	@OneToOne(cascade = {CascadeType.ALL})
 	private Ship ship;
 
 	@OneToOne(cascade = {CascadeType.ALL})
 	private Pilot pilot;
-
-	@Column(name="orderDate", columnDefinition="TIMESTAMP")
-	private LocalDateTime orderDate;
-
-	@Column(name="requestedDate", columnDefinition="TIMESTAMP")
-	private LocalDate requestedDate;
-
-	@Column(name="allocatedTime", columnDefinition="TIMESTAMP")
-	private LocalDateTime allocatedTime;
-
-	@OneToOne(cascade = {CascadeType.ALL})
+        
+        @OneToOne(cascade = {CascadeType.ALL})
 	private Berth berth;
-	private OrderStatus status;
-	private String reason;
+        
+        @Transient
+	private final double[] fares = { 100, 200, 300};
+    private LocalDateTime allocatedTime;
+    private LocalDate requestedDate;
 
-	// Empty default constructor needed for H2 in-memory testing DB.
+	
+	// Empty default constructor - hibernate/ h2
 	public Order() {
 
 	}
 
 	// Constructor for order requests with no available pilots.
-	public Order(Ship ship, Berth berth, LocalDate requestedDate, OrderStatus status, String reason) {
+		public Order(Ship ship, Berth berth, LocalDate dayOfArrival) {
+		this.uuid = UUID.randomUUID();
 		this.ship = ship;
 		this.berth = berth;
-		this.requestedDate = requestedDate;
-		this.status = status;
-		this.reason = reason;
+		this.dayOfArrival = dayOfArrival;
 		orderDate = LocalDateTime.now();
+		
+        
 	}
 
 	public Order(Ship ship, Pilot pilot, Berth berth, LocalDate requestedDate, LocalDateTime allocatedTime) {
 		this.ship = ship;
 		this.pilot = pilot;
 		this.berth = berth;
-		this.requestedDate = requestedDate;
-		this.allocatedTime = allocatedTime;
+		//add this.requestedDate = requestedDate;
+		//add this.allocatedTime = allocatedTime;
 		orderDate = LocalDateTime.now();
 	}
 
-	public int getId() {
-		return id;
+        //deal with primary key
+	public int getPk() {
+		return pk;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setPk(int pk) {
+		this.pk = pk;
 	}
 
+        public UUID getUUID() {
+		return uuid;
+	}
+
+	public void setUUID(UUID uuid) {
+		this.uuid = uuid;
+	}
 	public Ship getShip() {
 		return ship;
 	}
@@ -100,6 +135,15 @@ public class Order {
 	public void setPilot(Pilot pilot) {
 		this.pilot = pilot;
 	}
+        
+        public LocalDate getDayOfArrival() {
+		return dayOfArrival;
+	}
+
+	public void setDayOfArrival(LocalDate dayOfArrival) {
+		this.dayOfArrival = dayOfArrival;
+	}
+
 
 	public LocalDate getRequestedDate() {
 		return requestedDate;
@@ -148,16 +192,31 @@ public class Order {
 	public void setReason(String reason) {
 		this.reason = reason;
 	}
+        
+        public List<UUID> getChangeRequests() {
+		return changeRequests;
+	}
+
+	public void setChangeRequests(List<UUID> changeRequests) {
+		this.changeRequests = changeRequests;
+	}
 
 	@Override
 	public String toString() {
 		String orderDateString = orderDate.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm"));
-		String requestedDateString = requestedDate.format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
-		String allocatedTimeString = allocatedTime.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm"));
+		String dayOfArrivalString = dayOfArrival.format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
 
-		return "Order [allocatedTime=" + allocatedTimeString + ", berth=" + berth + ", id=" + id
-			+ ", orderDate=" + orderDateString + ", pilot=" + pilot + ", requestedDate=" + requestedDateString
-			+ ", ship=" + ship + ", status=" + status.name() + ", reason=" + reason + "]";
+		String allocatedStartString = "";
+		String allocatedEndString = "";
+
+		if (allocatedStart != null && allocatedEndString != null) {
+			allocatedStartString = allocatedStart.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm"));
+			allocatedEndString = allocatedEnd.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm"));
+		}
+
+		return "Order [allocatedStart=" + allocatedStartString + ", allocatedEnd=" + allocatedEndString + ", berth=" + berth + ", pk=" + pk
+			+ ", uuid=" + uuid + ", orderDate=" + orderDateString + ", pilot=" + pilot + ", dayOfArrival=" + dayOfArrivalString
+			+ ", ship=" + ship + ", status=" + status.name() + ", reason=" + reason  ;
 	}
 }
 

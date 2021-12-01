@@ -24,6 +24,8 @@ public class TideService {
 
 	@Autowired
 	private TideDAO tideDAO;
+        
+         
 
 	public Boolean getTideSafety(LocalDate date, LocalTime time, int draft) {
 		DayOfWeek day = date.getDayOfWeek();

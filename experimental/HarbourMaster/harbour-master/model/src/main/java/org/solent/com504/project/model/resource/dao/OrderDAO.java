@@ -10,6 +10,7 @@ import org.solent.com504.project.model.dto.Order;
 //import repository.OrderRepository;
 
 import java.util.List;
+import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -50,6 +51,10 @@ public class OrderDAO {
 
 	public List<Order> findByID(int id) {
 		return orderRepository.findByID(id);
+	}
+        
+        	public Order findByUUID(UUID uuid) {
+		return orderRepository.findOneByUuid(uuid);
 	}
 
     public Order findByShipId(int id) {

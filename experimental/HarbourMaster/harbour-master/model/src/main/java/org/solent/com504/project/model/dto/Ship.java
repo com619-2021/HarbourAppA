@@ -1,6 +1,8 @@
 
 package org.solent.com504.project.model.dto;
 
+import io.swagger.annotations.ApiModelProperty;
+import java.util.UUID;
 import javax.persistence.Id;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -13,9 +15,13 @@ import javax.persistence.Table;
 public class Ship {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int id;
-	private double draft;
-        private float length;
+        @ApiModelProperty(hidden = true)
+	private int pk;
+        
+        
+	private UUID uuid = null;
+        private double draft;
+        private float length; //prefer draft
 
         
         // bool to declare whether boat can dock at high/low tide
@@ -26,25 +32,32 @@ public class Ship {
 
 	}
 
-	public int getId() {
-		return id;
+public UUID getUUID() {
+		return uuid;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setUUID(UUID uuid) {
+		this.uuid = uuid;
+	}
+
+	public int getPk() {
+		return pk;
+	}
+
+	public void setPk(int pk) {
+		this.pk = pk;
 	}
 
 //more ship-defining 
         
 
-//	public double getDraft() {
-//		return draft;
-//	}
-//
-//	public void setDraft(double draft) {
-//		this.draft = draft;
-//	}
-        
+public double getDraft() {
+		return draft;
+	}
+
+	public void setDraft(double draft) {
+		this.draft = draft;
+        }
         
        public boolean isTide() {
         return tide;
@@ -62,6 +75,9 @@ public class Ship {
         this.length = length;
     }
 
-        
+        @Override
+	public String toString() {
+		return getClass().getSimpleName() + String.format("[pk=%d, uuid=%s, type=%s, draft=%f]", pk, uuid, draft);
+	}
 	
 }

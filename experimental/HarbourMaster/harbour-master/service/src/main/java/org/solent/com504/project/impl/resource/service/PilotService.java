@@ -13,12 +13,6 @@ import org.solent.com504.project.model.dto.Ship;
 import org.solent.com504.project.model.dto.Berth;
 
 
-
-
-
-
-
-
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.LocalDate;
