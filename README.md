@@ -1,51 +1,17 @@
-# HarbourAppA
-# packages
 
-## HmController
-
-- Controller.java
-  -    added rest capability and test path for api, still needs to be tested with tomcat
-- pilotDAO.java
-- shipDAO.java
-- dbconnect.java
+# Harbour Master Application- GRP A
 
 
-
-## model
-
-- pilot
-  - added barebones to model package, getters/setters included no actual methods as of yet
-
-- ship
-  - added barebones to model package, getters/setters included no actual methods as of yet
+### DAO\
+### MODEL -- CONTAINS DTO'S\
+### REPOSITORY (PERSISTANCE)\
+### SERVICE\
+### WEB -- CONTAINS CONTROLLERS.\
 
 
-### main issues
 
-- need a working SQL db connection
-- need to sort database object and DAO
-- Tidal API to be added to controller package *somewhere*
-- GPS also needs implementing
+//NEED TO ADD CLIENT.\
+//NEED TO ADD SWAGGER CLIENT.\
+ 
+//DOCKER- NEEDS RESOLVING.\
 
-
- -objectfactory/ servicefacade-  make pilots/ships
- 
- 
- 
- 
- 
- ## completed
- 
- #meeting with Port owners
- 
- #ship arrived required-
- 
- 
- #meeting with Shipping line
- 
- #LOA,no of passengers required on ship object
- 
- #spoken with HM team B
- 
- 
- 
