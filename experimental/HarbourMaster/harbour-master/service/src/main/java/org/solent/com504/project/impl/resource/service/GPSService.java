@@ -8,6 +8,7 @@ import java.util.Random;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -34,18 +35,18 @@ public class GPSService {
 	@Autowired
 	private OrderDAO orderDAO;
 
-	public GPS pingPresence(Ship ship) {
-		
-		GPS existingGPS = GPSDao.findByShipId(ship.getId());
+	public GPS pingPresence(UUID shipUUID) {
+		/* checks to see whether the location of this ship has already
+		   been found. */
+		GPS existingGPS = GPSDao.findByShipUUID(shipUUID);
 		if (existingGPS != null) {
 			return existingGPS;
 		}
-
-		
+		//group b suggestion
 		LocalDateTime time = LocalDateTime.now();
 		LocalDateTime earliestTime = time.minusHours(2L);
 
-		Order order = orderDAO.findByShipId(ship.getId());
+		Order order = orderDAO.findConfirmedByShipUUID(shipUUID);
 		LocalDateTime allocatedTime = order.getAllocatedTime();
 
 		

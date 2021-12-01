@@ -11,7 +11,7 @@
 
     <artifactId>harbour-master-repository</artifactId>
     <packaging>jar</packaging>
-    <name>harbour-master-dao</name>
+    <name>harbour-master-repository</name>
 
 
     <build>

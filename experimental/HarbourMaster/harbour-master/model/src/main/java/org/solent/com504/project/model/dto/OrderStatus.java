@@ -5,6 +5,8 @@ package org.solent.com504.project.model.dto;
  *
  * @author jake_
  */
+
+//enums
 public enum OrderStatus {
     
     

@@ -101,5 +101,6 @@ public Boolean cancelOrder(int orderId) {
 	public Boolean requestOrderChange(int orderId) {
 		return true;
 	}
+}
 
 

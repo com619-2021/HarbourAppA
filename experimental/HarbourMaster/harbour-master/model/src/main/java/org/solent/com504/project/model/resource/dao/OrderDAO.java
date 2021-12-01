@@ -11,6 +11,7 @@ import org.solent.com504.project.model.dto.Order;
 
 import java.util.List;
 import java.util.UUID;
+import org.solent.com504.project.model.order.dto.OrderStatus;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -18,10 +19,10 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public class OrderDAO {
-    @Autowired
-    private OrderRepository orderRepository;
-    
-    public Order findById(int id) {
+	@Autowired
+	private OrderRepository orderRepository;
+
+	public Order findById(int id) {
 		return orderRepository.findById(id).isPresent() ? orderRepository.findById(id).get() : null;
 	}
 
@@ -49,15 +50,22 @@ public class OrderDAO {
 		orderRepository.deleteAll();
 	}
 
-	public List<Order> findByID(int id) {
-		return orderRepository.findByID(id);
-	}
-        
-        	public Order findByUUID(UUID uuid) {
+	public Order findByUUID(UUID uuid) {
 		return orderRepository.findOneByUuid(uuid);
 	}
 
-    public Order findByShipId(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+	public Order findConfirmedByShipUUID(UUID uuid) {
+		List<Order> orders = orderRepository.findByShipUuid(uuid);
+
+		if (orders == null) {
+			return null;
+		} else {
+			for (Order o : orders) {
+				if (o.getStatus() == OrderStatus.CONFIRMED) {
+					return o;
+				}
+			}
+		}
+		return null;
+	}
 }

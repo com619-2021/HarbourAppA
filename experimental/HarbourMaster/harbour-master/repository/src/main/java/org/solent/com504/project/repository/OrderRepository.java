@@ -1,20 +1,19 @@
-package repository;
+package org.solent.com504.project.repository;
 
 
-import dto.Order;
+import org.solent.com504.project.model.dto.Order;
 import java.util.List;
+import java.util.UUID;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
-
 @Repository
 public interface OrderRepository extends JpaRepository<Order, Integer> {
-	@Query(value = "SELECT * FROM orders WHERE ID = :id", nativeQuery = true)
-	public List<Order> findByID(@Param("ID") int id);
+	public Order findOneByUuid(@Param("uuid") UUID uuid);
 
-
+	public List<Order> findByShipUuid(@Param("uuid") UUID uuid);
 }
 
