@@ -70,12 +70,12 @@ public class OrderService {
 
 		//Pilot chosenPilot = schedulePilot(pilots, safeTides, order, order.getDayOfArrival(), true);
 
-		if (chosenPilot == null) {
-			order.setStatus(OrderStatus.DENIED);
-			order.setReason("No pilots are available.");
-			orderDAO.save(order);
-			return order;
-		}
+//		if (chosenPilot == null) {
+//			order.setStatus(OrderStatus.DENIED);
+//			order.setReason("No pilots are available.");
+//			orderDAO.save(order);
+//			return order;
+//		}
 
 
 		return order;

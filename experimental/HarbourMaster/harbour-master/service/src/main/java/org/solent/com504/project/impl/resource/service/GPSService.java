@@ -16,7 +16,9 @@ import org.springframework.stereotype.Service;
 import org.solent.com504.project.model.dto.Ship;
 import org.solent.com504.project.model.dto.GPS;
 import org.solent.com504.project.model.dto.Order;
+import org.solent.com504.project.model.dto.OrderStatus;
 import org.solent.com504.project.model.dto.ShipLocation;
+
 
 import org.solent.com504.project.model.resource.dao.GPSDAO;
 import org.solent.com504.project.model.resource.dao.ShipLocationDAO;
@@ -26,49 +28,20 @@ import org.solent.com504.project.model.resource.dao.OrderDAO;
 public class GPSService {
 	private transient final org.apache.commons.logging.Log log = org.apache.commons.logging.LogFactory.getLog(this.getClass());
 
-	@Autowired
+        @Autowired
 	private GPSDAO GPSDao;
 
 	@Autowired
-	private ShipLocationDAO ShipLocationDAO;
+	private ShipLocationDAO shipLocationDAO;
 
 	@Autowired
 	private OrderDAO orderDAO;
-
-	public GPS pingPresence(UUID shipUUID) {
-		/* checks to see whether the location of this ship has already
-		   been found. */
-		GPS existingGPS = GPSDao.findByShipUUID(shipUUID);
-		if (existingGPS != null) {
-			return existingGPS;
-		}
-		//group b suggestion
-		LocalDateTime time = LocalDateTime.now();
-		LocalDateTime earliestTime = time.minusHours(2L);
-
-		Order order = orderDAO.findConfirmedByShipUUID(shipUUID);
-		LocalDateTime allocatedTime = order.getAllocatedTime();
-
-		
-		if (allocatedTime.isAfter(time) && earliestTime.isBefore(time)) {
-			
-			Random rand = new Random();
-			int n = rand.nextInt(3);
-
-			if (n == 1) {
-				
-				int randomId = rand.nextInt(8);
-				ShipLocation location = ShipLocationDAO.findById(randomId);
-				GPS GPS = new GPS(ship, location);
-
-				return GPS;
-			} else {
-				return null;
-			}
-		} else {
-			
-			return null;
-		}
-	}
+        
+     
 }
+        //not sure how GPS service will work yet.
 
+               
+                
+
+        

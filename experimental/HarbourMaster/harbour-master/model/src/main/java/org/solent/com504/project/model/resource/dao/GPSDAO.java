@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.UUID;
 
 import org.solent.com504.project.model.dto.GPS;
-//import repository.GPSRepository;
+import org.solent.com504.project.repository.GPSRepository;
 
 
 import org.springframework.beans.factory.annotation.Autowired;

@@ -168,6 +168,14 @@ public class Order {
 	public void setAllocatedTime(LocalDateTime allocatedTime) {
 		this.allocatedTime = allocatedTime;
 	}
+        
+        public LocalDateTime getAllocatedStart() {
+		return allocatedStart;
+	}
+
+	public void setAllocatedStart(LocalDateTime allocatedStart) {
+		this.allocatedStart = allocatedStart;
+	}
 
 	public Berth getBerth() {
 		return berth;
