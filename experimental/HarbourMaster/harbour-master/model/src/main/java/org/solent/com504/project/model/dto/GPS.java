@@ -13,12 +13,6 @@ import javax.persistence.CascadeType;
 import javax.persistence.OneToOne;
 
 
-/**
- *
- * @author jake_
- */
-
-
 
 @Entity
 public class GPS {

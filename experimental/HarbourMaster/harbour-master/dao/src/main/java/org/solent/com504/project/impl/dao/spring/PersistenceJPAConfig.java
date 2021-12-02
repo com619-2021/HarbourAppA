@@ -26,7 +26,9 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @EnableJpaRepositories(basePackages = {"org.solent.com504.project.impl.dao.party.springdata",
     "org.solent.com504.project.impl.dao.user.springdata",
     "org.solent.com504.project.impl.dao.resource.springdata",
-    "org.solent.com504.project.impl.dao.order.springdata"
+    "org.solent.com504.project.impl.dao.order.springdata",
+    "org.solent.com504.project.impl.dao.dao"
+
 })
 // @PropertySource("classpath:persistence-test.properties") // set in calling configuration
 public class PersistenceJPAConfig {
