@@ -1,4 +1,4 @@
-package org.solent.com504.project.repository;
+package org.solent.com504.project.impl.dao.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

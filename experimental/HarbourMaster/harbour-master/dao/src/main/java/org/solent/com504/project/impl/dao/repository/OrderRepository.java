@@ -1,5 +1,4 @@
-package org.solent.com504.project.repository;
-
+package org.solent.com504.project.impl.dao.repository;
 
 import org.solent.com504.project.model.dto.Order;
 import java.util.List;

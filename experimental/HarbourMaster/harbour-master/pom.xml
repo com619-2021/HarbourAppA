@@ -59,8 +59,7 @@
                 <module>dao</module>
                 <module>service</module>
                 <module>web</module>
-		<module>repository</module>
-          <!--      <module>swagger-generated-client</module> -->
+	 <!--      <module>swagger-generated-client</module> -->
             </modules>
         </profile>
         <!-- this will only work if you are running on a linux machine with installed docker or docker-desktop on windows -->
