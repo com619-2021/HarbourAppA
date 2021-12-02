@@ -15,7 +15,7 @@ import org.springframework.stereotype.Service;
 
 
 import org.solent.com504.project.model.dto.Tide;
-import org.solent.com504.project.model.order.dao.TideDAO;
+import org.solent.com504.project.impl.dao.dao.TideDAO;
 
 
 @Service

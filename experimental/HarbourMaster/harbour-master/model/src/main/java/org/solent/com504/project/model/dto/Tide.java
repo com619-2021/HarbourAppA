@@ -1,8 +1,7 @@
 
 package org.solent.com504.project.model.dto;
 
-import model.TideStage;
-
+import org.solent.com504.project.model.dto.TideStage;
 
 import java.util.ArrayList;
 import java.time.LocalTime;

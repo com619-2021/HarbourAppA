@@ -1,4 +1,4 @@
-package org.solent.com504.project.repository;
+package org.solent.com504.project.impl.dao.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
@@ -20,7 +20,7 @@ public interface TideRepository extends JpaRepository<Tide, Integer> {
 	@Query(value = "SELECT * FROM tides WHERE height > :draft AND day = :day", nativeQuery = true)
 	public List<Tide> getSafeTidesOnDay(@Param("day") int day, @Param("draft") double draft);
 
-	// revise.
-	@Query(value = "SELECT * FROM tides WHERE height > :draft", nativeQuery = true)
-	public LocalTime getNextSafeTide(@Param("draft") double draft);
+
+        @Query(value = "SELECT * FROM tides WHERE height > :draft", nativeQuery = true)
+          public LocalTime getNextSafeTide(double draft);
 }

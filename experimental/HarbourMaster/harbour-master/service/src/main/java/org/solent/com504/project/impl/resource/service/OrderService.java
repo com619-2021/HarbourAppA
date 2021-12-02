@@ -6,13 +6,13 @@
 package org.solent.com504.project.impl.resource.service;
 
 import java.time.LocalDate;
-import org.solent.com504.project.model.order.dao.OrderDAO;
+import org.solent.com504.project.impl.dao.dao.OrderDAO;
 import org.solent.com504.project.model.dto.Order;
 import org.solent.com504.project.model.dto.OrderStatus;
 
 
-import org.solent.com504.project.model.order.dao.PilotDAO;
-import org.solent.com504.project.model.order.dao.TideDAO;
+import org.solent.com504.project.impl.dao.dao.PilotDAO;
+import org.solent.com504.project.impl.dao.dao.TideDAO;
 import org.solent.com504.project.model.dto.Pilot;
 import org.solent.com504.project.model.dto.Ship;
 import org.solent.com504.project.model.dto.Tide;

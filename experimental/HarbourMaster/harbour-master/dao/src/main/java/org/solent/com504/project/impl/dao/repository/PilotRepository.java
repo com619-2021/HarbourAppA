@@ -1,5 +1,5 @@
 
-package org.solent.com504.project.repository;
+package org.solent.com504.project.impl.dao.repository;
 
 import org.solent.com504.project.model.dto.Pilot;
 import java.util.List;

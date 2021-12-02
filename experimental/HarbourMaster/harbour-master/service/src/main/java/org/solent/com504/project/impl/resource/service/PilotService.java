@@ -2,11 +2,11 @@
 package org.solent.com504.project.impl.resource.service;
 
 import org.solent.com504.project.model.dto.Pilot;
-import org.solent.com504.project.model.order.dao.PilotDAO;
+import org.solent.com504.project.impl.dao.dao.PilotDAO;
 
 
 
-import org.solent.com504.project.model.order.dao.TideDAO;
+import org.solent.com504.project.impl.dao.dao.TideDAO;
 
 import org.solent.com504.project.model.dto.Pilot;
 import org.solent.com504.project.model.dto.Ship;
