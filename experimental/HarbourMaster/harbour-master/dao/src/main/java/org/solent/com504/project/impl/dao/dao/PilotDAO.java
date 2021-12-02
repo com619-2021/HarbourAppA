@@ -8,13 +8,14 @@ import org.springframework.stereotype.Repository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.solent.com504.project.model.dto.Pilot;
 import java.util.UUID;
+import org.springframework.stereotype.Component;
 
 /**
  *
  * @author jake_
  */
 
-@Repository
+@Component
 public class PilotDAO {
 	@Autowired
 	private PilotRepository pilotRepository;

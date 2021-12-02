@@ -12,57 +12,56 @@ import javax.persistence.Column;
 import javax.persistence.CascadeType;
 import javax.persistence.OneToOne;
 
-
-
 @Entity
 public class GPS {
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	@ApiModelProperty(hidden = true)
-	private int id;
 
-	@OneToOne(cascade = {CascadeType.ALL})
-	private Ship ship;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @ApiModelProperty(hidden = true)
+    private Integer id;
 
-	@OneToOne(cascade = {CascadeType.ALL})
-	private ShipLocation location;
+    @OneToOne(cascade = {CascadeType.ALL})
+    private Ship ship;
 
-	// Empty default constructor needed for H2 in-memory testing DB.
-	public GPS() {
+    @OneToOne(cascade = {CascadeType.ALL})
+    private ShipLocation location;
 
-	}
+    // Empty default constructor needed for H2 in-memory testing DB.
+    public GPS() {
 
-	public GPS(Ship ship, ShipLocation location) {
-		this.ship = ship;
-		this.location = location;
-	}
+    }
 
-	public int getId() {
-		return id;
-	}
+    public GPS(Ship ship, ShipLocation location) {
+        this.ship = ship;
+        this.location = location;
+    }
 
-	public void setId(int id) {
-		this.id = id;
-	}
+    public Integer getId() {
+        return id;
+    }
 
-	public Ship getShip() {
-		return ship;
-	}
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
-	public void setShip(Ship ship) {
-		this.ship = ship;
-	}
+    public Ship getShip() {
+        return ship;
+    }
 
-	public ShipLocation getLocation() {
-		return location;
-	}
+    public void setShip(Ship ship) {
+        this.ship = ship;
+    }
 
-	public void setLocation(ShipLocation location) {
-		this.location = location;
-	}
+    public ShipLocation getLocation() {
+        return location;
+    }
 
-	@Override
-	public String toString() {
-		return "GPS [id=" + id + ", location=" + location + ", ship=" + ship + "]";
-	}
+    public void setLocation(ShipLocation location) {
+        this.location = location;
+    }
+
+    @Override
+    public String toString() {
+        return "GPS [id=" + id + ", location=" + location + ", ship=" + ship + "]";
+    }
 }

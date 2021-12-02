@@ -8,38 +8,39 @@ import org.springframework.stereotype.Repository;
 
 import org.solent.com504.project.model.dto.ShipLocation;
 import org.solent.com504.project.impl.dao.repository.ShipLocationRepository;
+import org.springframework.stereotype.Component;
 
-@Repository
+@Component
 public class ShipLocationDAO {
 	@Autowired
-	private ShipLocationRepository ShipLocationRepository;
+	private ShipLocationRepository shipLocationRepository;
 
 	public ShipLocation findById(int id) {
-		return ShipLocationRepository.findById(id).get();
+		return shipLocationRepository.findById(id).get();
 	}
 
 	public Boolean existsById(int id) {
-		return ShipLocationRepository.existsById(id);
+		return shipLocationRepository.existsById(id);
 	}
 
 	public ShipLocation save(ShipLocation ShipLocation) {
-		return ShipLocationRepository.save(ShipLocation);
+		return shipLocationRepository.save(ShipLocation);
 	}
 
 	public List<ShipLocation> findAll() {
-		return ShipLocationRepository.findAll();
+		return shipLocationRepository.findAll();
 	}
 
 	public void deleteById(int id) {
-		ShipLocationRepository.deleteById(id);
+		shipLocationRepository.deleteById(id);
 	}
 
 	public void delete(ShipLocation ShipLocation) {
-		ShipLocationRepository.delete(ShipLocation);
+		shipLocationRepository.delete(ShipLocation);
 	}
 
 	public void deleteAll() {
-		ShipLocationRepository.deleteAll();
+		shipLocationRepository.deleteAll();
 	}
 }
 

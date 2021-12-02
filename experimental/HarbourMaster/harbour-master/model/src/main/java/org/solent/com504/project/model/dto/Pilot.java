@@ -28,70 +28,60 @@ import javax.persistence.FetchType;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-
+import java.util.UUID;
 
 //D:\HarbourAppA\experimental\HarbourMaster\project\src\main\java\model
-
-
 /**
  *
  * @author jake_
  */
-
-
 @Entity
 @Table(name = "pilots")
 public class Pilot {
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int id;
 
+    private Integer id;
 
-@ElementCollection
-	
-	@Enumerated(EnumType.STRING)
-	
-	private String firstName;
-	private String lastName;
-	private Boolean available;
+    private String uuid = UUID.randomUUID().toString();
+    private String firstName;
+    private String lastName;
+    private Boolean available;
 
-	
+    // Constructor for saving a Pilot without giving an explicit ID.
+    public Pilot(String firstName, String lastName, Boolean available) {
 
-	// Constructor for saving a Pilot without giving an explicit ID.
-	public Pilot(String firstName, String lastName, Boolean available) {
-		
-		this.firstName = firstName;
-		this.lastName = lastName;
-		
-	}
+        this.firstName = firstName;
+        this.lastName = lastName;
 
+    }
 
-	public int getId() {
-		return id;
-	}
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    public Integer getId() {
+        return id;
+    }
 
-	public void setId(int id) {
-		this.id = id;
-	}
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
-	
-	public String getFirstName() {
-		return firstName;
-	}
+    public String getFirstName() {
+        return firstName;
+    }
 
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
 
-	public String getLastName() {
-		return lastName;
-	}
+    public String getLastName() {
+        return lastName;
+    }
 
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+    
+    
 
-	
 //
 //	@Override
 //	public String toString() {
@@ -102,4 +92,28 @@ public class Pilot {
 //
 //		return getClass().getSimpleName() + String.format("[id=%d, allowedTo=%s, firstName=%s, lastName=%s, dateOfBirth=%s]", id, allowedToStr, firstName, lastName, dobString);
 //	}
+
+    public String getUuid() {
+        return uuid;
+    }
+
+    public void setUuid(String uuid) {
+        this.uuid = uuid;
+    }
+
+    public Boolean getAvailable() {
+        return available;
+    }
+
+    public void setAvailable(Boolean available) {
+        this.available = available;
+    }
+
+    @Override
+    public String toString() {
+        return "Pilot{" + "id=" + id + ", uuid=" + uuid + ", firstName=" + firstName + ", lastName=" + lastName + ", available=" + available + '}';
+    }
+    
+    
+    
 }

@@ -15,54 +15,54 @@ public class Berth {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 
-	private int id;
+	private Integer id;
 
-	private int berthId;
+	private Integer berthId;
 
-	private double lat;
-	private double lon;
+	private Double lat;
+	private Double lon;
 
 	// Empty default constructor needed for H2 in-memory testing DB.
 	public Berth() {
 
 	}
 
-	public Berth(int berthId, double lat, double lon) {
+	public Berth(Integer berthId, Double lat, Double lon) {
 		this.berthId = berthId;
 		this.lat = lat;
 		this.lon = lon;
 	}
 
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
-	public int getBerthId() {
+	public Integer getBerthId() {
 		return berthId;
 	}
 
-	public void setBerthId(int berthId) {
+	public void setBerthId(Integer berthId) {
 		this.berthId = berthId;
 	}
 
 
-	public double getLat() {
+	public Double getLat() {
 		return lat;
 	}
 
-	public void setLat(double lat) {
+	public void setLat(Double lat) {
 		this.lat = lat;
 	}
 
-	public double getLon() {
+	public Double getLon() {
 		return lon;
 	}
 
-	public void setLon(double lon) {
+	public void setLon(Double lon) {
 		this.lon = lon;
 	}
 

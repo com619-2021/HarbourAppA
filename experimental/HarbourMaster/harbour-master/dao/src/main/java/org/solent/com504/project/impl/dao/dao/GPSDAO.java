@@ -8,43 +8,44 @@ import org.solent.com504.project.impl.dao.repository.GPSRepository;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
-@Repository
+@Component
 public class GPSDAO {
 	@Autowired
-	private GPSRepository GPSRepository;
+	private GPSRepository gpsRepository;
 
 	public GPS findById(int id) {
-		return GPSRepository.findById(id).isPresent() ? GPSRepository.findById(id).get() : null;
+		return gpsRepository.findById(id).isPresent() ? gpsRepository.findById(id).get() : null;
 	}
 
 	public Boolean existsById(int id) {
-		return GPSRepository.existsById(id);
+		return gpsRepository.existsById(id);
 	}
 
 	public GPS save(GPS GPS) {
-		return GPSRepository.save(GPS);
+		return gpsRepository.save(GPS);
 	}
 
 	public List<GPS> findAll() {
-		return GPSRepository.findAll();
+		return gpsRepository.findAll();
 	}
 
 	public void deleteById(int id) {
-		GPSRepository.deleteById(id);
+		gpsRepository.deleteById(id);
 	}
 
 	public void delete(GPS GPS) {
-		GPSRepository.delete(GPS);
+		gpsRepository.delete(GPS);
 	}
 
 	public void deleteAll() {
-		GPSRepository.deleteAll();
+		gpsRepository.deleteAll();
 	}
 
 	public GPS findByShipUUID(UUID uuid) {
-		return GPSRepository.findOneByShipUuid(uuid);
+		return gpsRepository.findOneByShipUuid(uuid);
 	}
 
     public GPS findByShipId(int id) {
