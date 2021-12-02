@@ -25,32 +25,28 @@ import javax.persistence.EnumType;
 
 @Entity
 @Table(name = "tides")
-
 public class Tide {
+   
+    
     @Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
-	private double height;
-        private boolean tidestage;
-
-	@Enumerated(EnumType.ORDINAL)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer id;
+    
+	private Double height;
+        private Boolean tidestage;
 	private DayOfWeek day;
-
-	@Column(name="start", columnDefinition="time")
 	private LocalTime start;
-
-	@Column(name="end", columnDefinition="time")
 	private LocalTime end;
 
         
-        public Tide(DayOfWeek day, double height, LocalTime start, LocalTime end) {
+        public Tide(DayOfWeek day, Double height, LocalTime start, LocalTime end) {
 		this.day = day;
 		this.height = height;
 		this.start = start;
 		this.end = end;
 	}
 
-	public Tide(int id, DayOfWeek day, double height, boolean tidestage, LocalTime start, LocalTime end) {
+	public Tide(int id, DayOfWeek day, Double height, Boolean tidestage, LocalTime start, LocalTime end) {
 		this.id = id;
 		this.day = day;
 		this.height = height;
@@ -59,6 +55,8 @@ public class Tide {
 		this.end = end;
 	}
 
+        
+        
 	public int getId() {
 		return id;
 	}

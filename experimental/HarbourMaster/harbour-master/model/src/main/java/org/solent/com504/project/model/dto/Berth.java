@@ -12,13 +12,10 @@ import javax.persistence.GenerationType;
 @Entity
 @Table(name="berths")
 public class Berth {
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	
 
 	private Integer id;
-
 	private Integer berthId;
-
 	private Double lat;
 	private Double lon;
 
@@ -33,6 +30,8 @@ public class Berth {
 		this.lon = lon;
 	}
 
+        @Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	public Integer getId() {
 		return id;
 	}

@@ -13,17 +13,11 @@ import javax.persistence.CascadeType;
 import javax.persistence.OneToOne;
 
 @Entity
+@Table(name = "gps")
 public class GPS {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @ApiModelProperty(hidden = true)
     private Integer id;
-
-    @OneToOne(cascade = {CascadeType.ALL})
     private Ship ship;
-
-    @OneToOne(cascade = {CascadeType.ALL})
     private ShipLocation location;
 
     // Empty default constructor needed for H2 in-memory testing DB.
@@ -36,6 +30,9 @@ public class GPS {
         this.location = location;
     }
 
+     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @ApiModelProperty(hidden = true)
     public Integer getId() {
         return id;
     }

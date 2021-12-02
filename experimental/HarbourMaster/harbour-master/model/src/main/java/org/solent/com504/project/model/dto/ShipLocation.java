@@ -10,39 +10,39 @@ import javax.persistence.Entity;
 
 
 
-
 @Entity
 public class ShipLocation {
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@ApiModelProperty(hidden = true)
-	private int pk;
+    
 
-	private double lat;
-	private double lon;
+	private Integer id;
+	private Double lat;
+	private Double lon;
 
 	// Empty default constructor needed for H2 in-memory testing DB.
 	public ShipLocation() {
 
 	}
 
-	public ShipLocation(double lat, double lon) {
+	public ShipLocation(Double lat, Double lon) {
 		this.lat = lat;
 		this.lon = lon;
 	}
-
-	public int getPk() {
-		return pk;
+        
+        @Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@ApiModelProperty(hidden = true)
+	public int getId() {
+		return id;
 	}
 
-	public void setPk(int pk) {
-		this.pk = pk;
+	public void setId(Integer id) {
+		this.id = id;
 	}
 	public double getLat() {
 		return lat;
 	}
 
-	public void setLat(double lat) {
+	public void setLat(Double lat) {
 		this.lat = lat;
 	}
 
@@ -50,12 +50,12 @@ public class ShipLocation {
 		return lon;
 	}
 
-	public void setLon(double lon) {
+	public void setLon(Double lon) {
 		this.lon = lon;
 	}
 
 @Override
 	public String toString() {
-		return getClass().getSimpleName() + "[pk=" + pk + ", lat=" + lat + ", lon=" + lon + "]";
+		return getClass().getSimpleName() + "[id=" + id + ", lat=" + lat + ", lon=" + lon + "]";
 	}
 }

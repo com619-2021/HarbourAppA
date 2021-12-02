@@ -16,16 +16,16 @@ public class Ship {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
         @ApiModelProperty(hidden = true)
-	private int pk;
+	private Integer id;
         
         
 	private UUID uuid = null;
-        private double draft;
-        private float length; //prefer draft
+        private Double draft;
+        private Float length; //prefer draft
 
         
         // bool to declare whether boat can dock at high/low tide
-        private boolean tide;
+        private Boolean tide;
 
 	// Empty default constructor 
 	public Ship() {
@@ -40,12 +40,12 @@ public UUID getUUID() {
 		this.uuid = uuid;
 	}
 
-	public int getPk() {
-		return pk;
+	public int getId() {
+		return id;
 	}
 
-	public void setPk(int pk) {
-		this.pk = pk;
+	public void setPk(Integer id) {
+		this.id = id;
 	}
 
 //more ship-defining 
@@ -55,7 +55,7 @@ public double getDraft() {
 		return draft;
 	}
 
-	public void setDraft(double draft) {
+	public void setDraft(Double draft) {
 		this.draft = draft;
         }
         
@@ -63,7 +63,7 @@ public double getDraft() {
         return tide;
     }
 
-    public void setTide(boolean tide) {
+    public void setTide(Boolean tide) {
         this.tide = tide;
     }
  
@@ -71,13 +71,13 @@ public double getDraft() {
         return length;
     }
 
-    public void setLength(float length) {
+    public void setLength(Float length) {
         this.length = length;
     }
 
         @Override
 	public String toString() {
-		return getClass().getSimpleName() + String.format("[pk=%d, uuid=%s, type=%s, draft=%f]", pk, uuid, draft);
+		return getClass().getSimpleName() + String.format("[id=%d, uuid=%s,draft=%f]", id, uuid, draft);
 	}
 	
 }

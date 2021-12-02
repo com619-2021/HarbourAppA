@@ -38,7 +38,7 @@ public class Order {
     private Integer id;
 
     @GeneratedValue(generator = "UUID")
-    private UUID uuid;
+   private String uuid = UUID.randomUUID().toString();
 
     private OrderStatus status;
 
@@ -80,7 +80,7 @@ public class Order {
 
     // Constructor for order requests with no available pilots.
     public Order(Ship ship, Berth berth, LocalDate dayOfArrival) {
-        this.uuid = UUID.randomUUID();
+        this.uuid = UUID.randomUUID().toString();
         this.ship = ship;
         this.berth = berth;
         this.dayOfArrival = dayOfArrival;
@@ -92,8 +92,8 @@ public class Order {
         this.ship = ship;
         this.pilot = pilot;
         this.berth = berth;
-        //add this.requestedDate = requestedDate;
-        //add this.allocatedTime = allocatedTime;
+        this.requestedDate = requestedDate;
+        this.allocatedTime = allocatedTime;
         orderDate = LocalDateTime.now();
     }
 
@@ -105,14 +105,7 @@ public class Order {
         this.id = id;
     }
 
-    public UUID getUuid() {
-        return uuid;
-    }
-
-    public void setUuid(UUID uuid) {
-        this.uuid = uuid;
-    }
-
+   
     public LocalDateTime getAllocatedEnd() {
         return allocatedEnd;
     }
@@ -121,13 +114,14 @@ public class Order {
         this.allocatedEnd = allocatedEnd;
     }
 
-    public UUID getUUID() {
+    public String getUuid() {
         return uuid;
     }
 
-    public void setUUID(UUID uuid) {
+    public void setUuid(String uuid) {
         this.uuid = uuid;
     }
+  
 
     public Ship getShip() {
         return ship;
