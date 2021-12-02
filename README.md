@@ -15,3 +15,6 @@
  
 //DOCKER- NEEDS RESOLVING.\
 
+//integrated database- pilots/ tides need writing.
+// ship classification
+//get REST api sorted.
