@@ -58,7 +58,7 @@ public class OrderService {
    public Order placeOrder(Order order, List<Pilot> pilots) {
 		if (pilots == null) {
 			order.setStatus(OrderStatus.DENIED);
-			order.setReason("No pilots are available.");
+			//order.setReason("No pilots are available.");
 			orderDAO.save(order);
 			return order;
 		}

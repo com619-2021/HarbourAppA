@@ -8,19 +8,21 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Entity;
 import javax.persistence.Table;
-import javax.persistence.Column;
-import javax.persistence.CascadeType;
-import javax.persistence.OneToOne;
+
+import org.solent.com504.project.model.dto.ShipLocation;
+import org.solent.com504.project.model.dto.Ship;
+
+
 
 @Entity
-//does this need table name?
+@Table(name = "gps")
 public class GPS {
 
     private Integer id;
     private Ship ship;
     private ShipLocation location;
 
-    // Empty default constructor needed for H2 in-memory testing DB.
+    // Empty default constructor 
     public GPS() {
 
     }
@@ -41,9 +43,7 @@ public class GPS {
         this.id = id;
     }
 
-    
-    
-  
+        
     public Ship getShip() {
         return ship;
     }
