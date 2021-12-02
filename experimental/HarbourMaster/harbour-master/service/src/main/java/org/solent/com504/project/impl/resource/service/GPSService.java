@@ -38,8 +38,8 @@ public class GPSService {
 	private OrderDAO orderDAO;
         
         
-        //copied from grp B as test needed a bean to pass test to build
-        
+//        copied from grp B as test needed a bean to pass test to build
+//        
      public GPS pingPresence(UUID shipUUID) {
 		/* checks to see whether the location of this ship has already
 		   been found. */

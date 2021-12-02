@@ -22,7 +22,9 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @Configuration
 @ComponentScan(basePackages = {"org.solent.com504.project.impl.dao.party.spring",
     "org.solent.com504.project.impl.dao.user.spring",
-    "org.solent.com504.project.impl.dao.dao",})
+    "org.solent.com504.project.impl.dao.dao",
+    "org.solent.com504.project.impl.resource.service"})
+
 @EnableTransactionManagement
 @EnableJpaRepositories(basePackages = {"org.solent.com504.project.impl.dao.party.springdata",
     "org.solent.com504.project.impl.dao.user.springdata",

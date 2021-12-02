@@ -13,7 +13,7 @@ import javax.persistence.CascadeType;
 import javax.persistence.OneToOne;
 
 @Entity
-@Table(name = "gps")
+//does this need table name?
 public class GPS {
 
     private Integer id;
@@ -30,7 +30,7 @@ public class GPS {
         this.location = location;
     }
 
-     @Id
+       @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @ApiModelProperty(hidden = true)
     public Integer getId() {
@@ -41,6 +41,9 @@ public class GPS {
         this.id = id;
     }
 
+    
+    
+  
     public Ship getShip() {
         return ship;
     }
@@ -59,6 +62,8 @@ public class GPS {
 
     @Override
     public String toString() {
-        return "GPS [id=" + id + ", location=" + location + ", ship=" + ship + "]";
+        return "GPS{" + "id=" + id + ", ship=" + ship + ", location=" + location + '}';
     }
+
+   
 }

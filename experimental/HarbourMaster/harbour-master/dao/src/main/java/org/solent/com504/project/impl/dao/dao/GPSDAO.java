@@ -11,8 +11,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
-@Component
+@Repository
 public class GPSDAO {
+    
 	@Autowired
 	private GPSRepository gpsRepository;
 
@@ -44,12 +45,8 @@ public class GPSDAO {
 		gpsRepository.deleteAll();
 	}
 
+	
 	public GPS findByShipUUID(UUID uuid) {
 		return gpsRepository.findOneByShipUuid(uuid);
 	}
-
-    public GPS findByShipId(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-        
 }
