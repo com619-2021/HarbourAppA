@@ -30,6 +30,10 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 })
 // @PropertySource("classpath:persistence-test.properties") // set in calling configuration
 public class PersistenceJPAConfig {
+    
+    
+    
+    //@config class
 
     @Autowired
     private Environment env;
@@ -42,7 +46,9 @@ public class PersistenceJPAConfig {
         em.setPackagesToScan("org.solent.com504.project.model.party.dto",
                 "org.solent.com504.project.model.user.dto",
                 "org.solent.com504.project.model.resource.dto",
-                "org.solent.com504.project.model.order.dto");
+                "org.solent.com504.project.model.order.dto",
+                "org.solent.com504.project.model..dto"
+        );
 
         final JpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
         em.setJpaVendorAdapter(vendorAdapter);
