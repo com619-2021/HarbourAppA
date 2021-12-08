@@ -33,6 +33,7 @@ public class Order {
 
     private OrderStatus status;
 
+    //do we want to use this?
     private String reason;
   
     private LocalDateTime orderDate;
@@ -44,16 +45,17 @@ public class Order {
     private LocalDateTime allocatedEnd;
 
    
-    //private List<UUID> changeRequests;
-
+   
+      
     //table doesn't like being given an entire object.
-        private Ship ship;
-        private Pilot pilot;
+        private Long shipID;
+        private Long pilotID;
         
-        //would need to get berthID from port owners
-        private Berth berth;
+//would need to get berthID from port owners
+        private Long berthID;
 
       
+        
     private LocalDateTime allocatedTime;
     private LocalDate requestedDate;
 
@@ -62,25 +64,31 @@ public class Order {
 
     }
 
-    // Constructor for order requests with no available pilots.
-    public Order(Ship ship, Berth berth, LocalDate dayOfArrival) {
-        this.uuid = UUID.randomUUID().toString();
-        this.ship = ship;
-        this.berth = berth;
-        this.dayOfArrival = dayOfArrival;
-        orderDate = LocalDateTime.now();
+   
 
-    }
-
-    public Order(Ship ship, Pilot pilot, Berth berth, LocalDate requestedDate, LocalDateTime allocatedTime) {
-        this.ship = ship;
-        this.pilot = pilot;
-        this.berth = berth;
+    public Order(String uuid, Long shipID, Long pilotID, Long berthID, LocalDate requestedDate, LocalDateTime allocatedTime) {
+        this.shipID = shipID;
+        this.pilotID = pilotID;
+        this.berthID = berthID;
         this.requestedDate = requestedDate;
         this.allocatedTime = allocatedTime;
-        orderDate = LocalDateTime.now();
+        this.orderDate = LocalDateTime.now();
     }
-
+//order created and when pilot will be unavailable.
+    
+    
+    
+    
+    public Long getId(Ship getID) {
+        return shipID;
+    }
+    public Long getId(Pilot getID) {
+        return pilotID;
+    }
+    public Long getId(Berth getID) {
+        return berthID;
+    }
+    
     
     
     public String getUuid() {
@@ -101,23 +109,6 @@ public class Order {
     }
 
     
-
-    public Ship getShip() {
-        return ship;
-    }
-
-    public void setShip(Ship ship) {
-        this.ship = ship;
-    }
-
-    public Pilot getPilot() {
-        return pilot;
-    }
-
-    public void setPilot(Pilot pilot) {
-        this.pilot = pilot;
-    }
-
     public LocalDate getDayOfArrival() {
         return dayOfArrival;
     }
@@ -158,14 +149,6 @@ public class Order {
         this.allocatedStart = allocatedStart;
     }
 
-    public Berth getBerth() {
-        return berth;
-    }
-
-    public void setBerth(Berth berth) {
-        this.berth = berth;
-    }
-
     public OrderStatus getStatus() {
         return status;
     }
@@ -174,19 +157,7 @@ public class Order {
         this.status = status;
     }
 
-//
-//    public List<UUID> getChangeRequests() {
-//        return changeRequests;
-//    }
-//
-//    public void setChangeRequests(List<UUID> changeRequests) {
-//        this.changeRequests = changeRequests;
-//    }
 
 
 
-    @Override
-    public String toString() {
-        return "Order{" + "uuid=" + uuid + ", status=" + status + ", reason=" + reason + ", orderDate=" + orderDate + ", dayOfArrival=" + dayOfArrival + ", allocatedStart=" + allocatedStart + ", allocatedEnd=" + allocatedEnd + ", ship=" + ship + ", pilot=" + pilot + ", berth=" + berth + ", allocatedTime=" + allocatedTime + ", requestedDate=" + requestedDate + '}';
-    }
 }

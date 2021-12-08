@@ -27,6 +27,8 @@ public class Ship {
         //passengers
         //lengthoverall
         private Float length; //prefer draft
+        //arrival_date
+        //services
 
         
         // bool to declare whether boat can dock at high/low tide

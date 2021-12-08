@@ -14,7 +14,7 @@ import javax.persistence.GenerationType;
 public class Berth {
 	
 
-	private Integer id;
+	private Long id;
 	private Integer berthId;
 	private Double lat;
 	private Double lon;
@@ -32,11 +32,11 @@ public class Berth {
 
         @Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	public Integer getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

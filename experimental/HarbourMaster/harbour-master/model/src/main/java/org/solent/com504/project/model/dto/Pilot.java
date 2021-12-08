@@ -39,7 +39,7 @@ import java.util.UUID;
 @Table(name = "pilots")
 public class Pilot {
 
-    private Integer id;
+    private Long id;
 
     private String uuid = UUID.randomUUID().toString();
     private String firstName;
@@ -56,11 +56,11 @@ public class Pilot {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
