@@ -20,21 +20,17 @@ public class GPS {
 
     private Integer id;
     private Ship ship;
-    private ShipLocation location;
+    private Double lon;
+    private Double lat;
+   
     
-    //shiplocation is latlong
-
     // Empty default constructor 
     public GPS() {
 
+        
     }
-
-    public GPS(Ship ship, ShipLocation location) {
-        this.ship = ship;
-        this.location = location;
-    }
-
-       @Id
+    
+    @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @ApiModelProperty(hidden = true)
     public Integer getId() {
@@ -45,7 +41,6 @@ public class GPS {
         this.id = id;
     }
 
-        
     public Ship getShip() {
         return ship;
     }
@@ -54,18 +49,28 @@ public class GPS {
         this.ship = ship;
     }
 
-    public ShipLocation getLocation() {
-        return location;
+    public Double getLon(ShipLocation getLon) {
+        return lon;
     }
 
-    public void setLocation(ShipLocation location) {
-        this.location = location;
+    public void setLon(Double lon) {
+        this.lon = lon;
+    }
+
+    public Double getLat(ShipLocation getLat) {
+        return lat;
+    }
+
+    public void setLat(Double lat) {
+        this.lat = lat;
     }
 
     @Override
     public String toString() {
-        return "GPS{" + "id=" + id + ", ship=" + ship + ", location=" + location + '}';
+        return "GPS{" + "id=" + id + ", ship=" + ship + ", lon=" + lon + ", lat=" + lat + '}';
     }
 
-   
+
+  
+  
 }
