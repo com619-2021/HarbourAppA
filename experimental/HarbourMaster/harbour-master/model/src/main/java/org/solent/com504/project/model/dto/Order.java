@@ -46,8 +46,11 @@ public class Order {
    
     //private List<UUID> changeRequests;
 
+    //table doesn't like being given an entire object.
         private Ship ship;
         private Pilot pilot;
+        
+        //would need to get berthID from port owners
         private Berth berth;
 
       
