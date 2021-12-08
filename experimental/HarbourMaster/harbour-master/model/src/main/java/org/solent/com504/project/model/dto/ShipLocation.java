@@ -14,7 +14,7 @@ import javax.persistence.Entity;
 public class ShipLocation {
     
 
-	private Integer id;
+	private Long id;
 	private Double lat;
 	private Double lon;
 
@@ -31,11 +31,11 @@ public class ShipLocation {
         @Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@ApiModelProperty(hidden = true)
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 	public double getLat() {
