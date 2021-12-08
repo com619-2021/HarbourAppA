@@ -46,10 +46,5 @@ public class OrderDAO {
 		orderRepository.deleteAll();
 	}
 
-	public Order findByUUID(UUID uuid) {
-		return orderRepository.findOneByUuid(uuid);
-	}
-        
-        
-     
+	
 }

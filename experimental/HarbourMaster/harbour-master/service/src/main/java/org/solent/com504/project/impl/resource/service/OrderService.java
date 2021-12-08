@@ -49,9 +49,9 @@ public class OrderService {
         
         
 
-	public Order retrieveOrder(UUID uuid) {
-		return orderDAO.findByUUID(uuid);
-	}
+//	public Order retrieveOrder(UUID uuid) {
+//		return orderDAO.findByUUID(uuid);
+//	}
 
 	public List<Order> findAll() {
 		return orderDAO.findAll();
@@ -59,7 +59,7 @@ public class OrderService {
 
 
 
-public Boolean cancelOrder(int orderId) {
+public Boolean cancelOrder(Integer orderId) {
 		Order order = orderDAO.findById(orderId);
 		if (order == null) {
 			return false;
@@ -74,7 +74,7 @@ public Boolean cancelOrder(int orderId) {
 		return true;
 	}
 
-	public Boolean requestOrderChange(int orderId) {
+	public Boolean requestOrderChange(Integer orderId) {
 		return true;
 	}
 }

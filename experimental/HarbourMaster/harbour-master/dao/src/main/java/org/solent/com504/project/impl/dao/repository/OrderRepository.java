@@ -10,7 +10,7 @@ import org.springframework.data.repository.query.Param;
 
 @Repository
 public interface OrderRepository extends JpaRepository<Order, Integer> {
-	public Order findOneByUuid(@Param("uuid") UUID uuid);
+	// public Order findById(@Param("uuid") UUID uuid);
 
 	
 }
