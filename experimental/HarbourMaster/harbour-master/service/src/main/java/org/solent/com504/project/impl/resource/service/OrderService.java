@@ -46,6 +46,8 @@ public class OrderService {
 
 	@Autowired
 	private PilotDAO pilotDAO;
+        
+        
 
 	public Order retrieveOrder(UUID uuid) {
 		return orderDAO.findByUUID(uuid);
@@ -55,33 +57,7 @@ public class OrderService {
 		return orderDAO.findAll();
 	}
 
-   public Order placeOrder(Order order, List<Pilot> pilots) {
-		if (pilots == null) {
-			order.setStatus(OrderStatus.DENIED);
-			//order.setReason("No pilots are available.");
-			orderDAO.save(order);
-			return order;
-		}
 
-		LocalDate date = order.getDayOfArrival();
-		Ship ship = order.getShip();
-
-		List<Tide> safeTides = tideDAO.getSafeTidesOnDay(date.getDayOfWeek(), ship.getDraft());
-
-		//Pilot chosenPilot = schedulePilot(pilots, safeTides, order, order.getDayOfArrival(), true);
-
-//		if (chosenPilot == null) {
-//			order.setStatus(OrderStatus.DENIED);
-//			order.setReason("No pilots are available.");
-//			orderDAO.save(order);
-//			return order;
-//		}
-
-
-		return order;
-	}    
-        
-   
 
 public Boolean cancelOrder(int orderId) {
 		Order order = orderDAO.findById(orderId);

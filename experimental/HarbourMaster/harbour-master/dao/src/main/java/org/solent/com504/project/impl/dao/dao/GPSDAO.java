@@ -5,6 +5,7 @@ import java.util.UUID;
 
 import org.solent.com504.project.model.dto.GPS;
 import org.solent.com504.project.impl.dao.repository.GPSRepository;
+import org.solent.com504.project.model.dto.Ship;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +15,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class GPSDAO {
     
+        
 	@Autowired
 	private GPSRepository gpsRepository;
 
@@ -46,7 +48,7 @@ public class GPSDAO {
 	}
 
 	
-	public GPS findByShipUUID(UUID uuid) {
-		return gpsRepository.findOneByShipUuid(uuid);
+	public GPS findByShipID(Ship getID) {
+		return gpsRepository.findByShipID();
 	}
 }
