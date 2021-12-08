@@ -49,19 +49,7 @@ public class OrderDAO {
 	public Order findByUUID(UUID uuid) {
 		return orderRepository.findOneByUuid(uuid);
 	}
-
-	public Order findConfirmedByShipUUID(UUID uuid) {
-		List<Order> orders = orderRepository.findByShipUuid(uuid);
-
-		if (orders == null) {
-			return null;
-		} else {
-			for (Order o : orders) {
-				if (o.getStatus() == OrderStatus.CONFIRMED) {
-					return o;
-				}
-			}
-		}
-		return null;
-	}
+        
+        
+     
 }

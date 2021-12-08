@@ -48,7 +48,5 @@ public class GPSDAO {
 	}
 
 	
-	public GPS findByShipID(Ship getID) {
-		return gpsRepository.findByShipID();
-	}
+	
 }

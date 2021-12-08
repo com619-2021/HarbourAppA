@@ -12,6 +12,6 @@ import org.springframework.data.repository.query.Param;
 public interface OrderRepository extends JpaRepository<Order, Integer> {
 	public Order findOneByUuid(@Param("uuid") UUID uuid);
 
-	public List<Order> findByShipUuid(@Param("uuid") UUID uuid);
+	
 }
 

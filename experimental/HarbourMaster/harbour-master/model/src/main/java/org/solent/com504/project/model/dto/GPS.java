@@ -22,8 +22,11 @@ public class GPS {
     private Integer id;
 
 
-    //ship
+    @Id
     private UUID uuid = null;
+    
+    //ship
+    private Long shipID;
     private Double draft;
     //shiplocation
     private Double lon;
@@ -35,22 +38,14 @@ public class GPS {
 
         
     }
-    
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @ApiModelProperty(hidden = true)
-    public Integer getId() {
-        return id;
+
+    public Long getId(Ship getId) {
+        return shipID;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-
     
-    
-     public UUID getUuid(Ship getUuid) {
+
+    public UUID getUuid() {
         return uuid;
     }
 
@@ -58,16 +53,23 @@ public class GPS {
         this.uuid = uuid;
     }
 
-    public Double getDraft(Ship getDraft) {
+    public Long getShipID() {
+        return shipID;
+    }
+
+    public void setShipID(Long shipID) {
+        this.shipID = shipID;
+    }
+
+    public Double getDraft() {
         return draft;
     }
 
     public void setDraft(Double draft) {
         this.draft = draft;
     }
-   
 
-    public Double getLon(ShipLocation getLon) {
+    public Double getLon() {
         return lon;
     }
 
@@ -75,7 +77,7 @@ public class GPS {
         this.lon = lon;
     }
 
-    public Double getLat(ShipLocation getLat) {
+    public Double getLat() {
         return lat;
     }
 
@@ -85,11 +87,8 @@ public class GPS {
 
     @Override
     public String toString() {
-        return "GPS{" + "id=" + id + ", uuid=" + uuid + ", draft=" + draft + ", lon=" + lon + ", lat=" + lat + '}';
+        return "GPS{" + "id=" + id + ", uuid=" + uuid + ", shipID=" + shipID + ", draft=" + draft + ", lon=" + lon + ", lat=" + lat + '}';
     }
 
- 
-
-  
   
 }

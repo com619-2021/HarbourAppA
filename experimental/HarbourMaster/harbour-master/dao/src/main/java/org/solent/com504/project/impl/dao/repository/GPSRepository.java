@@ -12,6 +12,6 @@ import org.springframework.data.repository.query.Param;
 @Repository
 public interface GPSRepository extends JpaRepository<GPS, Integer> {
 
-    public GPS findByShipID();
+    
 	
 }
