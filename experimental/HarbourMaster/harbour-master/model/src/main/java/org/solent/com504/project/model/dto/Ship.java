@@ -16,12 +16,16 @@ public class Ship {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
         @ApiModelProperty(hidden = true)
-	private Integer id;
+	private Long id;
         private UUID uuid = null;
+
+ 
         private Double draft;
+                //Shipping team using depth AND size
         
-        //shiplocation not passed to ship
         
+        //passengers
+        //lengthoverall
         private Float length; //prefer draft
 
         
@@ -33,24 +37,24 @@ public class Ship {
 
 	}
 
-public UUID getUUID() {
-		return uuid;
-	}
+    
+           public Long getId() {
+        return id;
+    }
 
-	public void setUUID(UUID uuid) {
-		this.uuid = uuid;
-	}
+     public void setId(Long id) {
+        this.id = id;
+    }
 
-	
+        public UUID getUuid() {
+        return uuid;
+    }
 
-	public void setID(Integer id) {
-		this.id = id;
-	}
-
-//more ship-defining 
+        public void setUuid(UUID uuid) {
+        this.uuid = uuid;
+    }
         
-
-public double getDraft() {
+        public double getDraft() {
 		return draft;
 	}
 
