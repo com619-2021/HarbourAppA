@@ -1,6 +1,7 @@
 package org.solent.com504.project.model.dto;
 
 import io.swagger.annotations.ApiModelProperty;
+import java.util.UUID;
 
 import javax.persistence.Basic;
 import javax.persistence.Id;
@@ -19,7 +20,12 @@ import org.solent.com504.project.model.dto.Ship;
 public class GPS {
 
     private Integer id;
-    private Ship ship;
+
+
+    //ship
+    private UUID uuid = null;
+    private Double draft;
+    //shiplocation
     private Double lon;
     private Double lat;
    
@@ -41,13 +47,25 @@ public class GPS {
         this.id = id;
     }
 
-    public Ship getShip() {
-        return ship;
+
+    
+    
+     public UUID getUuid(Ship getUuid) {
+        return uuid;
     }
 
-    public void setShip(Ship ship) {
-        this.ship = ship;
+    public void setUuid(UUID uuid) {
+        this.uuid = uuid;
     }
+
+    public Double getDraft(Ship getDraft) {
+        return draft;
+    }
+
+    public void setDraft(Double draft) {
+        this.draft = draft;
+    }
+   
 
     public Double getLon(ShipLocation getLon) {
         return lon;
@@ -67,9 +85,10 @@ public class GPS {
 
     @Override
     public String toString() {
-        return "GPS{" + "id=" + id + ", ship=" + ship + ", lon=" + lon + ", lat=" + lat + '}';
+        return "GPS{" + "id=" + id + ", uuid=" + uuid + ", draft=" + draft + ", lon=" + lon + ", lat=" + lat + '}';
     }
 
+ 
 
   
   
