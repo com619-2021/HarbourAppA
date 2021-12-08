@@ -17,10 +17,11 @@ public class Ship {
 	@GeneratedValue(strategy = GenerationType.AUTO)
         @ApiModelProperty(hidden = true)
 	private Integer id;
-        
-        
-	private UUID uuid = null;
+        private UUID uuid = null;
         private Double draft;
+        
+        //shiplocation not passed to ship
+        
         private Float length; //prefer draft
 
         
@@ -40,11 +41,9 @@ public UUID getUUID() {
 		this.uuid = uuid;
 	}
 
-	public int getId() {
-		return id;
-	}
+	
 
-	public void setPk(Integer id) {
+	public void setID(Integer id) {
 		this.id = id;
 	}
 

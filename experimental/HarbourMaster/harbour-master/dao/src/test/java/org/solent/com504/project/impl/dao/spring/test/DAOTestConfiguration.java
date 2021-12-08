@@ -20,7 +20,6 @@ import org.springframework.context.annotation.PropertySource;
 @PropertySource("classpath:persistence-test.properties")
 public class DAOTestConfiguration {
     
-    //write tests
-    
+ 
     
 }

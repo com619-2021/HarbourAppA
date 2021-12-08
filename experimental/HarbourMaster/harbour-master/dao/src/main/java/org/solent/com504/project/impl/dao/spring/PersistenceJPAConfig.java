@@ -52,7 +52,7 @@ public class PersistenceJPAConfig {
                 "org.solent.com504.project.model.user.dto",
                 "org.solent.com504.project.model.resource.dto",
                 "org.solent.com504.project.model.order.dto",
-                "org.solent.com504.project.model..dto"
+                "org.solent.com504.project.model.dto"
         );
 
         final JpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();

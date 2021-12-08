@@ -21,6 +21,8 @@ public class GPS {
     private Integer id;
     private Ship ship;
     private ShipLocation location;
+    
+    //shiplocation is latlong
 
     // Empty default constructor 
     public GPS() {
