@@ -6,6 +6,7 @@
 package org.solent.com504.project.impl.resource.service;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import org.solent.com504.project.impl.dao.dao.OrderDAO;
 import org.solent.com504.project.model.dto.Order;
 import org.solent.com504.project.model.dto.OrderStatus;
@@ -22,8 +23,12 @@ import java.util.Random;
 import java.util.List;
 import java.util.Arrays;
 import java.util.UUID;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.graalvm.compiler.virtual.phases.ea.PartialEscapeBlockState.Final;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 
 
@@ -35,6 +40,7 @@ import org.springframework.stereotype.Service;
 public class OrderService {
     
     //it works
+   
     private transient final org.apache.commons.logging.Log log = org.apache.commons.logging.LogFactory.getLog(this.getClass());
     
 
@@ -47,36 +53,7 @@ public class OrderService {
 	@Autowired
 	private PilotDAO pilotDAO;
         
+  
         
-
-//	public Order retrieveOrder(UUID uuid) {
-//		return orderDAO.findByUUID(uuid);
-//	}
-
-	public List<Order> findAll() {
-		return orderDAO.findAll();
-	}
-
-
-
-public Boolean cancelOrder(Integer orderId) {
-		Order order = orderDAO.findById(orderId);
-		if (order == null) {
-			return false;
-		}
-
-		log.info("Found matching order: " + order + ".");
-		order.setStatus(OrderStatus.CANCELLED);
-
-		// Free up the time from the pilot's schedule.
-
-		orderDAO.save(order);
-		return true;
-	}
-
-	public Boolean requestOrderChange(Integer orderId) {
-		return true;
-	}
 }
-
 

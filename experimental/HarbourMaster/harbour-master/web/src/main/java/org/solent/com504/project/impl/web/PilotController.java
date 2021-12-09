@@ -25,7 +25,7 @@ import io.swagger.annotations.ApiOperation;
 
 
 @RestController
-@Api(description = "Controller for the CRUD operations of pilots.")
+@Api
 public class PilotController {
 	private transient final org.apache.commons.logging.Log log = org.apache.commons.logging.LogFactory.getLog(this.getClass());
 
@@ -73,6 +73,9 @@ public class PilotController {
 			: new ResponseEntity<>(String.format("Unable to delete pilot '%s'. They may not exist in the database.", uuid), HttpStatus.NOT_FOUND);
 	}
 
+        
+        
+        //needs to be transactional
 	@DeleteMapping(value = "/api/pilot/deleteAll")
 	@Transactional
 	@ApiOperation("DEBUG: Deletes all pilots.")

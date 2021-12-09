@@ -27,15 +27,16 @@ import javax.persistence.Transient;
 public class Order {
     
 
-    //breaks if moved
-      @Id
+    
+      
      private String uuid = UUID.randomUUID().toString();
 
+     private Long id;
+
+        
     private OrderStatus status;
 
-    //do we want to use this?
-    private String reason;
-  
+   
     private LocalDateTime orderDate;
  
     private LocalDate dayOfArrival;
@@ -58,6 +59,9 @@ public class Order {
         
     private LocalDateTime allocatedTime;
     private LocalDate requestedDate;
+    
+    
+    
 
     // Empty default constructor - hibernate/ h2
     public Order() {
@@ -78,7 +82,15 @@ public class Order {
     
     
     
-    
+    @Id
+     public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+        
     public Long getId(Ship getID) {
         return shipID;
     }

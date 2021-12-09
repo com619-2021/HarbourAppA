@@ -9,6 +9,8 @@ package org.solent.com504.project.impl.resource.service;
 import java.time.LocalTime;
 import java.time.LocalDate;
 import java.time.DayOfWeek;
+import java.time.LocalDateTime;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -26,6 +28,16 @@ public class TideService {
 	private TideDAO tideDAO;
         
          
+        
+        //using grb b service to test.
+
+public List<Tide> getSafeTidesOnDay(LocalDate date, double draft) {
+		return tideDAO.getSafeTidesOnDay(date.getDayOfWeek(), draft);
+	}
+
+	public Tide getTideAt(LocalDateTime time) {
+		return tideDAO.getTideAt(time.getDayOfWeek(), time.toLocalTime());
+	}
 
 	public Boolean getTideSafety(LocalDate date, LocalTime time, int draft) {
 		DayOfWeek day = date.getDayOfWeek();

@@ -143,4 +143,14 @@ public class OrderServiceImpl implements OrderService {
         return order;
     }
 
+    @Override
+    public boolean cancelOrder(UUID uuid, String reason) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Order retrieveOrder(UUID uuid) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
 }

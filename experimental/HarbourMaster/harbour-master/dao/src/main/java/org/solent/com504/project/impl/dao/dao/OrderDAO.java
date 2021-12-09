@@ -15,7 +15,8 @@ import org.springframework.stereotype.Repository;
 
 @Component
 public class OrderDAO {
-	@Autowired
+    
+	// @Autowired
 	private OrderRepository orderRepository;
 
 	public Order findById(int id) {
@@ -46,5 +47,12 @@ public class OrderDAO {
 		orderRepository.deleteAll();
 	}
 
-	
+         
+             
+    public Order findByUuid(String uuid) {
+        List<Order> orders = orderRepository.findByUuid(uuid);
+        if (orders.isEmpty()) return null;
+        return orders.get(0);
+    }
+    
 }
