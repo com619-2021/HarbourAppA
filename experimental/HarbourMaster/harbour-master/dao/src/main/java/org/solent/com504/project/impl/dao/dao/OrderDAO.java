@@ -48,11 +48,11 @@ public class OrderDAO {
 	}
 
          
-             
-    public Order findByUuid(String uuid) {
-        List<Order> orders = orderRepository.findByUuid(uuid);
-        if (orders.isEmpty()) return null;
-        return orders.get(0);
-    }
+//             
+//    public Order findByUuid(String uuid) {
+//        List<Order> orders = orderRepository.findByUuid(uuid);
+//        if (orders.isEmpty()) return null;
+//        return orders.get(0);
+//    }
     
 }
