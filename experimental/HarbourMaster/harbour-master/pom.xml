@@ -80,7 +80,6 @@
 
     <modules>
         <module>model</module>
-        <module>modelB</module>
         <module>dao</module>
         <module>service</module>
         <module>web</module>
