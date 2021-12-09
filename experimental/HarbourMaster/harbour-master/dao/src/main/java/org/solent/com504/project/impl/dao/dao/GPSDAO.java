@@ -15,6 +15,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class GPSDAO {
     
+//add comment so it commits
         
 	@Autowired
 	private GPSRepository gpsRepository;
