@@ -58,24 +58,25 @@
           <!--      <module>client</module> -->
                 <module>dao</module>
                 <module>service</module>
-                <module>web</module>
+		 <module>web</module>
+	<!-- 	docker pom<module>docker</module>  -->
 	 <!--      <module>swagger-generated-client</module> -->
             </modules>
         </profile>
         <!-- this will only work if you are running on a linux machine with installed docker or docker-desktop on windows -->
-   <!--     <profile>
+      <profile>
             <id>packageAsDocker</id>
             <modules>
                 <module>model</module>
-                <module>client</module>
+               <!--   <module>client</module> -->
                 <module>dao</module>
                 <module>service</module>
                 <module>web</module>
-                <module>swagger-generated-client</module>
+                <!--  <module>swagger-generated-client</module> -->
                 <module>docker</module>
             </modules>
         </profile>
--->
+
     </profiles>
 
     <modules>

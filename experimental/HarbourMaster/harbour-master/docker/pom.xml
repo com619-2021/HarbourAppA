@@ -7,7 +7,7 @@
         <version>0.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>order-example-docker</artifactId>
+    <artifactId>harbour-master-docker</artifactId>
     <name>harbour-master-docker</name>
     <packaging>pom</packaging>
 
@@ -33,7 +33,7 @@
                             <artifactItems>
                                 <artifactItem>
                                     <groupId>${project.groupId}</groupId>
-                                    <artifactId>order-example-web</artifactId>
+                                    <artifactId>harbour-master-web</artifactId>
                                     <version>${project.version}</version>
                                     <type>war</type>
                                 </artifactItem>
