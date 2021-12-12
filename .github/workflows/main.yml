@@ -28,7 +28,7 @@ jobs:
       - name: Build with Maven
         working-directory: ./experimental/HarbourMaster/harbour-master/
         run: | 
-          mvn -B --update-snapshots package -P packageAsDocker
+          mvn -B --update-snapshots clean package -P packageAsDocker
           docker build ./docker -f ./docker/Dockerfile -t ghcr.io/${{ github.repository_owner }}/harbour:${{ env.RELEASE_VERSION }}
           docker push ghcr.io/${{ github.repository_owner }}/harbour:${{ env.RELEASE_VERSION }}
           
