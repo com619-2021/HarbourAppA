@@ -63,11 +63,9 @@
             </modules>
         </profile>
         <!-- this will only work if you are running on a linux machine with installed docker or docker-desktop on windows -->
-<<<<<<< HEAD
+
       <profile>
-=======
        <profile>
->>>>>>> 83f8d0955b73d55e9996a7f1b32b09e6c402b6fc
             <id>packageAsDocker</id>
             <modules>
                 <module>model</module>
@@ -79,10 +77,7 @@
                 <module>docker</module>
             </modules>
         </profile>
-<<<<<<< HEAD
 
-=======
->>>>>>> 83f8d0955b73d55e9996a7f1b32b09e6c402b6fc
     </profiles>
 
     <modules>
