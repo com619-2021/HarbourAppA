@@ -64,7 +64,6 @@
         </profile>
         <!-- this will only work if you are running on a linux machine with installed docker or docker-desktop on windows -->
 
-      <profile>
        <profile>
             <id>packageAsDocker</id>
             <modules>
