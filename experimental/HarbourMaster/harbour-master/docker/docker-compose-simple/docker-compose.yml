@@ -1,0 +1,37 @@
+version: '3'
+
+services:
+
+# see https://www.nginx.com/blog/deploying-nginx-nginx-plus-docker/ Managing Content and Configuration Files
+  nginx:
+    image: nginx:1.15-alpine
+    restart: unless-stopped
+    volumes:
+      - ./data/nginx/conf.d:/etc/nginx/conf.d
+      - ./data/nginx/html:/usr/share/nginx/html
+      - ./data/certbot/conf:/etc/letsencrypt
+      - ./data/certbot/www:/var/www/certbot
+    ports:
+      - "80:80"
+      - "443:443"
+    command: "/bin/sh -c 'while :; do sleep 6h & wait $${!}; nginx -s reload; done & nginx -g \"daemon off;\"'"
+
+  harbour-master1:
+    image: solentdevops/order-example:0.1-SNAPSHOT
+    # harbour-master/harbour-master-web:0.1-SNAPSHOT:war
+    ports:
+      - "8080:8080"
+    volumes:
+      - harbour-master1-logs:/usr/local/tomcat/logs
+
+  harbour-master2:
+    image: solentdevops/order-example:0.1-SNAPSHOT
+    ports:
+      - "8081:8080"
+    volumes:
+      - harbour-master2-logs:/usr/local/tomcat/logs
+
+
+volumes:
+  harbour-master1-logs: {}
+  harbour-master2logs: {}
