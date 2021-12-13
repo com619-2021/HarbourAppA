@@ -8,7 +8,8 @@ To build the docker image from the parent project use
 once you have packaged the docker image you can run it directly using 
 
 ```
-docker run -p 8080:8080 solentdevops/order-example:0.1-SNAPSHOT
+docker run -p 8080:8080 solentdevops/harbour-master:0.1-SNAPSHOT
+docker run -p 8080:8080 harbour-master-web:0.1-SNAPSHOT
 ```
 
 or use the docker compose file

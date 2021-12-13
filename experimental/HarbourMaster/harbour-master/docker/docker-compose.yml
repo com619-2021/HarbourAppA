@@ -1,14 +1,14 @@
 version: "3.9"
 services:
-  order-example1:
-    image: solentdevops/order-example:0.1-SNAPSHOT
+  harbour-master1:
+    image: solentdevops/harbour-master:0.1-SNAPSHOT
     ports:
       - "8080:8080"
     volumes:
       - order-example1-logs:/usr/local/tomcat/logs
 
-  order-example2:
-    image: solentdevops/order-example:0.1-SNAPSHOT
+  harbour-master2:
+    image:  solentdevops/harbour-master:0.1-SNAPSHOT
     ports:
       - "8081:8080"
     volumes:
@@ -16,5 +16,5 @@ services:
 
 
 volumes:
-  order-example1-logs: {}
-  order-example2-logs: {}
+  harbour-master1-logs: {}
+  harbour-master2-logs: {}
