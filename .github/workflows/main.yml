@@ -37,7 +37,7 @@ jobs:
         uses: actions/upload-artifact@v1
         with:
           name: surefire-reports
-          path: ./experimental/HarbourMaster/harbour-master/service/target/surefire-reports
+          path: ./experimental/HarbourMaster/harbour-master/dao/target/surefire-reports/**
           
       - name: Send dispatch to Repository
         uses: peter-evans/repository-dispatch@v1
