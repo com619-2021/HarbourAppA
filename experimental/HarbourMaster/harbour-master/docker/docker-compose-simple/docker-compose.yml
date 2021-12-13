@@ -17,15 +17,14 @@ services:
     command: "/bin/sh -c 'while :; do sleep 6h & wait $${!}; nginx -s reload; done & nginx -g \"daemon off;\"'"
 
   harbour-master1:
-    image: solentdevops/order-example:0.1-SNAPSHOT
-    # harbour-master/harbour-master-web:0.1-SNAPSHOT:war
-    ports:
+    image:  solentdevops/harbour-master-web:0.1-SNAPSHOT
+        ports:
       - "8080:8080"
     volumes:
       - harbour-master1-logs:/usr/local/tomcat/logs
 
   harbour-master2:
-    image: solentdevops/order-example:0.1-SNAPSHOT
+    image: solentdevops/harbour-master-web:0.1-SNAPSHOT
     ports:
       - "8081:8080"
     volumes:
