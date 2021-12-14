@@ -9,6 +9,8 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 
+//wher we would have SQL queries.
+
 @Repository
 public interface GPSRepository extends JpaRepository<GPS, Integer> {
 

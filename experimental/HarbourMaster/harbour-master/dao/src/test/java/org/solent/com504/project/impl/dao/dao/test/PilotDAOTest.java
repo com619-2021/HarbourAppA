@@ -26,6 +26,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
 
 import org.solent.com504.project.impl.dao.repository.PilotRepository;
+import org.solent.com504.project.impl.dao.dao.PilotDAO;
 import org.solent.com504.project.impl.dao.resource.springdata.ResourceCatalogRepository;
 import org.solent.com504.project.impl.dao.resource.springdata.ResourceRepository;
 import org.solent.com504.project.impl.dao.spring.test.DAOTestConfiguration;
@@ -50,6 +51,9 @@ public class PilotDAOTest {
 
      @Autowired
      private PilotRepository pilotRepository = null;
+     
+     @Autowired
+	private PilotDAO pilotDAO;
     
     
     
@@ -58,6 +62,8 @@ public class PilotDAOTest {
         LOG.debug("before test running");
         
         assertNotNull(pilotRepository);
+        assertNotNull(pilotDAO);
+        
         
         LOG.debug("before test complete");
     }
