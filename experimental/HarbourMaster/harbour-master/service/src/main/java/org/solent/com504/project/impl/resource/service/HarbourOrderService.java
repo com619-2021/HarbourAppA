@@ -37,7 +37,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 
 @Service
-public class OrderService {
+public class HarbourOrderService {
     
     //it works
    

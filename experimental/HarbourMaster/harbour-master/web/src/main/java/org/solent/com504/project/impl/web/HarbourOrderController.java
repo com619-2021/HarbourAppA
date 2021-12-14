@@ -10,7 +10,7 @@ import io.swagger.annotations.ApiOperation;
 import java.util.List;
 import java.util.UUID;
 import org.solent.com504.project.model.order.dto.Order;
-import org.solent.com504.project.impl.resource.service.OrderService;
+import org.solent.com504.project.impl.resource.service.HarbourOrderService;
 
 
 
@@ -31,7 +31,7 @@ public class HarbourOrderController {
 	private transient final org.apache.commons.logging.Log log = org.apache.commons.logging.LogFactory.getLog(this.getClass());
 
 	@Autowired
-	OrderService orderService;
+	HarbourOrderService orderService;
 
 
 }

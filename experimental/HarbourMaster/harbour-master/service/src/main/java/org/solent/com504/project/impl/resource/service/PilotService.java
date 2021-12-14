@@ -40,7 +40,7 @@ public class PilotService {
 	private TideDAO tideDAO;
 
 	@Autowired
-	private OrderService orderService;
+	private HarbourOrderService orderService;
 
 	@Autowired
 	private GPSService gpsService;
@@ -54,7 +54,6 @@ public class PilotService {
 		Pilot pilot = pilotDAO.findByUUID(uuid);
 		return pilot;
 	}
-
 	public List<Pilot> getAllPilots() {
 		return pilotDAO.findAll();
 	}

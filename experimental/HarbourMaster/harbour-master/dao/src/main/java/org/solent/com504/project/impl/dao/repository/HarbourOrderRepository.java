@@ -1,3 +1,4 @@
+
 package org.solent.com504.project.impl.dao.repository;
 
 import org.solent.com504.project.model.dto.Order;
@@ -11,7 +12,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.data.repository.query.Param;
 
 @Repository
-public interface OrderRepository extends JpaRepository<Order, Integer> {
+public interface HarbourOrderRepository extends JpaRepository<Order, Integer> {
 	
 //
 //  @Query("select o from Orders o LEFT JOIN FETCH o.Orders where o.uuid = :uuid")
@@ -19,4 +20,3 @@ public interface OrderRepository extends JpaRepository<Order, Integer> {
 
     
 }
-

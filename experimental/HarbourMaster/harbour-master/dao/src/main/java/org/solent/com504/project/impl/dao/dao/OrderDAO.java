@@ -3,7 +3,7 @@ package org.solent.com504.project.impl.dao.dao;
 
 
 import org.solent.com504.project.model.dto.Order;
-import org.solent.com504.project.impl.dao.repository.OrderRepository;
+import org.solent.com504.project.impl.dao.repository.HarbourOrderRepository;
 
 import java.util.List;
 import java.util.UUID;
@@ -17,7 +17,7 @@ import org.springframework.stereotype.Repository;
 public class OrderDAO {
     
 	// @Autowired
-	private OrderRepository orderRepository;
+	private HarbourOrderRepository orderRepository;
 
 	public Order findById(int id) {
 		return orderRepository.findById(id).isPresent() ? orderRepository.findById(id).get() : null;
