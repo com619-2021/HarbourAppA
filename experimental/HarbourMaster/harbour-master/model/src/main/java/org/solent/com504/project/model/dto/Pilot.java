@@ -51,8 +51,10 @@ public class Pilot {
 
         this.firstName = firstName;
         this.lastName = lastName;
-
+        this.available = available;
     }
+
+  
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

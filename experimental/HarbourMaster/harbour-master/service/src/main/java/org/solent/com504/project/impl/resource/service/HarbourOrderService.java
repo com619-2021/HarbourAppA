@@ -53,7 +53,23 @@ public class HarbourOrderService {
 	@Autowired
 	private PilotDAO pilotDAO;
         
+        public List<Order> findAll() {
+		return orderDAO.findAll();
+	}
   
+        //createorder
+        public Order createOrder(Order order, List<Pilot> pilots)
+        {
+		if (pilots == null) {
+			order.setStatus(OrderStatus.DENIED);
+                        //needs pilot in database.
+			orderDAO.save(order);
+			return order;
+                        
+		}
+           
+        return order;
         
+}
 }
 
