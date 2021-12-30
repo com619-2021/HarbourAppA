@@ -55,7 +55,9 @@ public class Tide {
 		this.end = end;
 	}
 
+        public Tide(){
         
+        }
         
 	public int getId() {
 		return id;
