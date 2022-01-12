@@ -14,12 +14,3 @@ http://solent-devops3.uksouth.cloudapp.azure.com/harbour/project-web/index.html
 ### WEB -- CONTAINS CONTROLLERS.\
 ### DOCKER - PACKAGES AS DOCKER/SNAPSHOT- WORKFLOW
 
-ISSUE WITH WEB- no page loading?
-
-//NEED TO ADD CLIENT.\
-//NEED TO ADD SWAGGER CLIENT.\
- 
-
-//integrated database- pilots/ tides need writing.
-//ship classification
-//get REST api sorted.
